@@ -6,4 +6,7 @@
 - 💬 Ask me about Distributed systems and Large scale Apps
 - 📫 How to reach me: send me email on progeng_ahmed_khalil@outlook.com
 - ⚡ Fun fact: Keep coding
--->
+
+## 𝗦𝘁𝗮𝘁𝘀
+
+![Ahmed Khalil Github Stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&show_icons=true&theme=dracula)
