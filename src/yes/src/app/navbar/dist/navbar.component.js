@@ -10,6 +10,7 @@ exports.NavbarComponent = void 0;
 var core_1 = require("@angular/core");
 var NavbarComponent = /** @class */ (function () {
     function NavbarComponent() {
+        this.link = "https://raw.githubusercontent.com/AhmedKhalil777/AhmedKhalil777/master/README.md";
     }
     NavbarComponent.prototype.ngOnInit = function () {
         (function ($) {

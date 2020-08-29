@@ -12,7 +12,7 @@ import * as $ from 'jquery';
 export class NavbarComponent implements OnInit {
 
   constructor() { }
-
+  link = "https://raw.githubusercontent.com/AhmedKhalil777/AhmedKhalil777/master/README.md";
   ngOnInit(): void {
     (function($) {
 
