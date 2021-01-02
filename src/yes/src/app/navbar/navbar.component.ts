@@ -35,6 +35,9 @@ export class NavbarComponent implements OnInit {
     })(jQuery);
 
 
+    
   }
+  ngAfterContentInit(): void { }
+
 
 }

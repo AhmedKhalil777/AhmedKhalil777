@@ -16,3 +16,64 @@
 ## 𝗦𝘁𝗮𝘁𝘀
 
 ![Ahmed Khalil Github Stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&show_icons=true&theme=dracula)
+
+## Technologies
+
+<table>
+<tr>
+<td width="10%">
+<img width="100%" src="./src/Pics/Azure.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/dotnet.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/angular.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/blazor.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/rx.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/django.jpg"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/gRPC.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/graphQL.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/firebase.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/js.png"/>
+</td>
+</tr>
+<tr>
+<td width="10%">
+<img width="100%" src="./src/Pics/oauth-3-logo.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/swagger.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/Ts.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/node.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/mongo.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/r.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/python.png"/>
+</td>
+</tr>
+</table>
+

@@ -514,3 +514,52 @@
   .subscribe-form .form-control {
     background: #3b4ec6; }
   
+
+/* Adding The Glope */
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  font-weight: 400;
+  font-size: 22px;
+  background: #000;
+  color: #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.word {
+  position: relative;
+  z-index: 1;
+  font-family: 'Titillium Web', sans-serif;
+}
+.word:before {
+  content: '';
+  background: radial-gradient(circle at 40% 20%, #fcfcfc 0%, #ddd 10%, #333 50%, black 70%);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-40%, -35%);
+          transform: translate(-40%, -35%);
+  -webkit-filter: blur(0.5px);
+          filter: blur(0.5px);
+}
+
+span {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
