@@ -34,7 +34,7 @@
 <img width="100%" src="./src/Pics/blazor.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/rx.png"/>
+<img width="100%" src="./src/Pics/Rx.png"/>
 </td>
 <td width="10%">
 <img width="100%" src="./src/Pics/django.jpg"/>
