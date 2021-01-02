@@ -41,15 +41,15 @@
 <td width="10%">
 <img width="100%" src="./src/Pics/django.jpg"/>
 </td>
-</tr>
-<tr>
+
 <td width="10%">
 <img width="100%" src="./src/Pics/gRPC.png"/>
 </td>
 <td width="10%">
 <img width="100%" src="./src/Pics/graphQL.png"/>
 </td>
-
+</tr>
+<tr>
 <td width="10%">
 <img width="100%" src="./src/Pics/firebase.png"/>
 </td>
@@ -64,8 +64,7 @@
 <td width="10%">
 <img width="100%" src="./src/Pics/swagger.png"/>
 </td>
-</tr>
-<tr>
+
 <td width="10%">
 <img width="100%" src="./src/Pics/Ts.png"/>
 </td>
@@ -78,8 +77,25 @@
 <td width="10%">
 <img width="100%" src="./src/Pics/r.png"/>
 </td>
+</tr>
+<tr>
 <td width="10%">
 <img width="100%" src="./src/Pics/python.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/api.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/css.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/html.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/jwt.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="./src/Pics/microservices.png"/>
 </td>
 </tr>
 </table>
