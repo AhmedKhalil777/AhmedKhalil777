@@ -34,22 +34,22 @@
 <td width="10%">
 <img width="100%" src="./src/Pics/blazor.png"/>
 </td>
-</tr>
-<tr>
+
 <td width="10%">
 <img width="100%" src="./src/Pics/Rx.png"/>
 </td>
 <td width="10%">
 <img width="100%" src="./src/Pics/django.jpg"/>
 </td>
+</tr>
+<tr>
 <td width="10%">
 <img width="100%" src="./src/Pics/gRPC.png"/>
 </td>
 <td width="10%">
 <img width="100%" src="./src/Pics/graphQL.png"/>
 </td>
-</tr>
-<tr>
+
 <td width="10%">
 <img width="100%" src="./src/Pics/firebase.png"/>
 </td>
@@ -78,8 +78,6 @@
 <td width="10%">
 <img width="100%" src="./src/Pics/r.png"/>
 </td>
-</tr>
-<tr>
 <td width="10%">
 <img width="100%" src="./src/Pics/python.png"/>
 </td>
