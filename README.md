@@ -30,9 +30,12 @@
 <td width="10%">
 <img width="100%" src="./src/Pics/angular.png"/>
 </td>
+
 <td width="10%">
 <img width="100%" src="./src/Pics/blazor.png"/>
 </td>
+</tr>
+<tr>
 <td width="10%">
 <img width="100%" src="./src/Pics/Rx.png"/>
 </td>
@@ -45,20 +48,24 @@
 <td width="10%">
 <img width="100%" src="./src/Pics/graphQL.png"/>
 </td>
+</tr>
+<tr>
 <td width="10%">
 <img width="100%" src="./src/Pics/firebase.png"/>
 </td>
+
 <td width="10%">
 <img width="100%" src="./src/Pics/js.png"/>
 </td>
-</tr>
-<tr>
+
 <td width="10%">
 <img width="100%" src="./src/Pics/oauth-3-logo.png"/>
 </td>
 <td width="10%">
 <img width="100%" src="./src/Pics/swagger.png"/>
 </td>
+</tr>
+<tr>
 <td width="10%">
 <img width="100%" src="./src/Pics/Ts.png"/>
 </td>
@@ -71,6 +78,8 @@
 <td width="10%">
 <img width="100%" src="./src/Pics/r.png"/>
 </td>
+</tr>
+<tr>
 <td width="10%">
 <img width="100%" src="./src/Pics/python.png"/>
 </td>
