@@ -6,6 +6,9 @@
 [![](https://img.shields.io/badge/-@AhmedKhalil777-%23181717?style=flat-square&logo=github)](https://github.com/AhmedKhalil777)
 [![](https://img.shields.io/badge/-Ahmed%20Khalil-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/ahmed-khalil-b09abb176/)](https://www.linkedin.com/in/ahmed-khalil-b09abb176/)
 [![](https://img.shields.io/website?color=0ab9e6&style=flat-square&up_message=AhmedKhalil777.com&url=https://ahmedkhalil777.github.io/AhmedKhalil777/)](https://ahmedkhalil777.github.io/AhmedKhalil777/)
+
+![](https://hit.yhype.me/github/profile?user_id=38745087)
+
 - 🔭 I’m currently working at Bdaya development - Egypt
 - 🌱 I’m currently learning Microservices
 - 👯 I’m looking to collaborate on Dotnet projects
@@ -18,7 +21,7 @@
 ![Ahmed Khalil Github Stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&show_icons=true&theme=dracula)
 
 
-![](https://hit.yhype.me/github/profile?user_id=38745087)
+
 
 
 ## Technologies
