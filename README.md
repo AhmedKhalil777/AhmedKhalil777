@@ -18,8 +18,9 @@
 ![Ahmed Khalil Github Stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&show_icons=true&theme=dracula)
 
 
-<!-- It is https://yhype.me/ views count tracker, please remove it or use your own -->
-![](https://hit.yhype.me/github/profile?user_id=46970457)
+![](https://hit.yhype.me/github/profile?user_id=38745087)
+
+
 ## Technologies
 
 <table>
