@@ -22,7 +22,6 @@
 ## 𝗦𝘁𝗮𝘁𝘀
 
 ![Ahmed Khalil Github Stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&show_icons=true&theme=dracula)
-[![[Ahmed Khalil GitHub stats](https://github-readme-stats.anuraghazra1.vercel.app/api?username=AhmedKhalil777&count_private=true&include_all_commits=true&hide=contribs&show_icons=true&cache_seconds=1801)](https://github.com/AhmedKhalil777)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AhmedKhalil777&exclude_repo=ualehosaini.github.io,free-for-dev&layout=compact&langs_count=8)](https://github.com/ualehosaini)
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=AhmedKhalil777&" alt="AhmedKhalil777" /></p> 
 
