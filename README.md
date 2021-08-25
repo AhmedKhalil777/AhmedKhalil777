@@ -12,7 +12,6 @@
 
 ![](https://hit.yhype.me/github/profile?user_id=38745087)
 
-- 🔭 I’m currently working at Bdaya development - Egypt
 - 🌱 I’m currently learning Microservices
 - 👯 I’m looking to collaborate on Dotnet projects
 - 💬 Ask me about Distributed systems and Large scale Apps
