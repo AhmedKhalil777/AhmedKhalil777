@@ -7,11 +7,7 @@
 [![](https://img.shields.io/badge/-Ahmed%20Khalil-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/ahmed-khalil-b09abb176/)](https://www.linkedin.com/in/ahmed-khalil-b09abb176/)
 [![](https://img.shields.io/website?color=0ab9e6&style=flat-square&up_message=AhmedKhalil777.com&url=https://ahmedkhalil777.github.io/AhmedKhalil777/)](https://ahmedkhalil777.github.io/AhmedKhalil777/)
 
-
-![](https://hit.yhype.me/github/profile?user_id=38745087)
-
-![](https://hit.yhype.me/github/profile?user_id=38745087)
-
+- 💰 I’m currently working at Iskraemeco
 - 🌱 I’m currently learning Microservices
 - 👯 I’m looking to collaborate on Dotnet projects
 - 💬 Ask me about Distributed systems and Large scale Apps
