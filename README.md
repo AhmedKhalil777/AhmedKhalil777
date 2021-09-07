@@ -32,83 +32,83 @@
 <table>
 <tr>
 <td width="10%">
-<img width="100%" src="./src/Pics/Azure.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/Azure.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/dotnet.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/dotnet.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/angular.png"/>
-</td>
-
-<td width="10%">
-<img width="100%" src="./src/Pics/blazor.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/angular.png"/>
 </td>
 
 <td width="10%">
-<img width="100%" src="./src/Pics/Rx.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="./src/Pics/django.jpg"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/blazor.png"/>
 </td>
 
 <td width="10%">
-<img width="100%" src="./src/Pics/gRPC.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/Rx.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/graphQL.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/django.jpg"/>
+</td>
+
+<td width="10%">
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/gRPC.png"/>
+</td>
+<td width="10%">
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/graphQL.png"/>
 </td>
 </tr>
 <tr>
 <td width="10%">
-<img width="100%" src="./src/Pics/firebase.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/firebase.png"/>
 </td>
 
 <td width="10%">
-<img width="100%" src="./src/Pics/js.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/js.png"/>
 </td>
 
 <td width="10%">
-<img width="100%" src="./src/Pics/oauth-3-logo.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/oauth-3-logo.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/swagger.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/swagger.png"/>
 </td>
 
 <td width="10%">
-<img width="100%" src="./src/Pics/Ts.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/Ts.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/node.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/node.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/mongo.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/mongo.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/r.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/r.png"/>
 </td>
 </tr>
 <tr>
 <td width="10%">
-<img width="100%" src="./src/Pics/python.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/python.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/api.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/api.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/css.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/css.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/html.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/html.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/jwt.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/jwt.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/microservices.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics//microservices.png"/>
 </td>
 <td width="10%">
-<img width="100%" src="./src/Pics/csharp-logo.png"/>
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/csharp-logo.png"/>
 </td>
 </tr>
 </table>
