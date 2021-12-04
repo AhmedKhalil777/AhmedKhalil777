@@ -1,5 +1,6 @@
 ### Hi there 👋
-### Ahmed Khalil fresh graduated student from CIS Faculty Mansoura Grade of excellent with honors
+### Ahmed Khalil graduated student from CIS Faculty Mansoura Grade of excellent with honors 2020.
+### Working at Iskraemeco as Dotnet Developer.
 [![](https://vistr.dev/badge?repo=AhmedKhalil777.AhmedKhalil777&corners=square)](https://github.com/AhmedKhalil777/vistr.dev)
 [![](https://img.shields.io/badge/-Ahmed%20Khalil-%231DA1F2?style=flat-square&logo=facebook&logoColor=white)](https://www.facebook.com/ProgENGAhmedKhalil/)
 [![](https://img.shields.io/badge/-@ProgengAhmd-%231DA1F2?style=flat-square&logo=twitter&logoColor=ffffff)](https://twitter.com/ProgengAhmd)
