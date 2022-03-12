@@ -114,6 +114,9 @@
 <td width="10%">
 <img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/csharp-logo.png"/>
 </td>
+  <td width="10%">
+<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/rust-language.jpg"/>
+</td>
 </tr>
 </table>
 
