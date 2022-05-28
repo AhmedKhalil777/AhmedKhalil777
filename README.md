@@ -33,6 +33,9 @@
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=AhmedKhalil777&" alt="AhmedKhalil777" /></p> 
 
 
+# Activity Graph
+![GitHub Activity Graph](https://activity-graph.herokuapp.com/graph?username=MohamedAshraf004)  
+
 
 
 ## Technologies
