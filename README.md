@@ -6,6 +6,10 @@
 ### Visitor Since 12 Mars 2020
 ![Visitors since 12 Mars 2020](http://estruyf-github.azurewebsites.net/api/VisitorHit?user=AhmedKhalil777&repo=A&countColor=%237B1E7A)
 <br><br>
+## 🏆 GitHub Trophies
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=AhmedKhalil777&theme=nord&column=7)](https://github.com/ryo-ma/github-profile-trophy)
+
 <br>
 <br>
 
