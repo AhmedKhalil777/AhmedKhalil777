@@ -56,63 +56,21 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg" title="NodeJS" alt="NodeJS" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" title="AWS" alt="AWS" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/oauth-3-logo.png" title="OAuth" **alt="OAuth" width="40" height="40"/>
+     <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/swagger.png" title="Swagger" **alt="Swagger" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/Ts.png" title="TS" **alt="TS" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/node.png" title="Node" **alt="Node" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/mongo.png" title="Mongo" **alt="Mongo" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/r.png" title="R" **alt="R" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/python.png" title="Python" **alt="Python" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/api.png" title="RestAPI" **alt="RestAPI" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/css.png" title="CSS" **alt="CSS" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/html.png" title="HTML" **alt="HTML" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/jwt.png" title="JWT" **alt="JWT" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics//microservices.png" title="Microservices" **alt="Microservices" width="40" height="40"/>
+   <img src="hhttps://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/csharp-logo.png" title="C#" **alt="C#" width="40" height="40"/>
+   <img src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/rust-language.jpg" title="RUST" **alt="RUST" width="40" height="40"/>
+
 </div>
 
-<table>
-<tr>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/firebase.png"/>
-</td>
-
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/js.png"/>
-</td>
-
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/oauth-3-logo.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/swagger.png"/>
-</td>
-
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/Ts.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/node.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/mongo.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/r.png"/>
-</td>
-</tr>
-<tr>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/python.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/api.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/css.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/html.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/jwt.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics//microservices.png"/>
-</td>
-<td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/csharp-logo.png"/>
-</td>
-  <td width="10%">
-<img width="100%" src="https://github.com/AhmedKhalil777/AhmedKhalil777/raw/master/src/Pics/rust-language.jpg"/>
-</td>
-</tr>
-</table>
 
