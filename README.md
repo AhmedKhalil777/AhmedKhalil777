@@ -2,9 +2,15 @@
 ### Ahmed Khalil graduated student from CIS Faculty Mansoura Grade of excellent with honors 2020.
 ### Working at Iskraemeco as Dotnet Developer.
 
-### Visitor Since 12 Mars 2022
-![Visitors since 12 Mars 2022](http://estruyf-github.azurewebsites.net/api/VisitorHit?user=AhmedKhalil777&repo=A&countColor=%237B1E7A)
-<br><br>
+### Visitor Since 31 -12-2022
+
+<a href=#><img src="contributions.svg"></a>
+
+<p align="center"> 
+  Visitor count<br>
+  <img src="https://profile-counter.glitch.me/insolitum/count.svg" />
+</p>
+
 ## 🏆 GitHub Trophies
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=AhmedKhalil777&theme=nord&column=7)](https://github.com/ryo-ma/github-profile-trophy)
