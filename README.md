@@ -30,9 +30,8 @@
 - ⚡ Fun fact: Keep coding
 
 ## 𝗦𝘁𝗮𝘁𝘀
+![Ahmed Khalil's GitHub stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&show_icons=true&theme=radical)
 
-![Ahmed Khalil Github Stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&theme=dark&show_icons=true)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AhmedKhalil777&exclude_repo=ualehosaini.github.io,free-for-dev&layout=compact&langs_count=8)](https://github.com/ualehosaini)
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=AhmedKhalil777&" alt="AhmedKhalil777" /></p> 
 
 ## Wakatime
