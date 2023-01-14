@@ -4,8 +4,6 @@
 
 ### Visitor Since 31 -12-2022
 
-<a href=#><img src="contributions.svg"></a>
-
 <p align="center"> 
   Visitor count<br>
   <img src="https://profile-counter.glitch.me/AhmedKhalil777/count.svg" />
@@ -36,11 +34,6 @@
 ![Ahmed Khalil Github Stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&theme=dark&show_icons=true)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=AhmedKhalil777&exclude_repo=ualehosaini.github.io,free-for-dev&layout=compact&langs_count=8)](https://github.com/ualehosaini)
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=AhmedKhalil777&" alt="AhmedKhalil777" /></p> 
-
-
-# Activity Graph
-![GitHub Activity Graph](https://activity-graph.herokuapp.com/graph?username=AhmedKhalil777)  
-
 
 
 ## Technologies
