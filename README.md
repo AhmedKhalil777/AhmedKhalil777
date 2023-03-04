@@ -1,7 +1,7 @@
 ### Hi there 👋
 ### Ahmed Khalil graduated student from CIS Faculty Mansoura Grade of excellent with honors 2020.
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=257FA7&width=435&lines=Hi+I+am+Ahmed+Khalil;%F0%9F%92%B0+I%E2%80%99m+currently+working+at+Iskraemeco+%7BElsewedy+Technologies%7D;%F0%9F%8C%B1+I%E2%80%99m+currently+learning+Microservices;%F0%9F%91%AF+I%E2%80%99m+looking+to+collaborate+on+Dotnet+projects;%F0%9F%93%AB+How+to+reach+me%3A+send+me+email+on+progeng_ahmed_khalil%40outlook.com;%E2%9A%A1+Fun+fact%3A+Keep+coding)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=257FA7&width=750&lines=Hi+I+am+Ahmed+Khalil;%F0%9F%92%B0+I%E2%80%99m+currently+working+at+Iskraemeco+%7BElsewedy+Technologies%7D;%F0%9F%8C%B1+I%E2%80%99m+currently+learning+Microservices;%F0%9F%91%AF+I%E2%80%99m+looking+to+collaborate+on+Dotnet+projects;%F0%9F%93%AB+How+to+reach+me%3A+send+me+email+on+progeng_ahmed_khalil%40outlook.com;%E2%9A%A1+Fun+fact%3A+Keep+coding)](https://git.io/typing-svg)
 
 ### Visitor Since 31 -12-2022
 
