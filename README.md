@@ -27,6 +27,7 @@
 <a href="https://github.com/AhmedKhalil777">
     <img align="center" width="49%" src="./achievements.svg" />
 </a>
+
 ### Visitor Since 31 -12-2022
 
 <p align="center"> 
@@ -51,10 +52,6 @@
 ![Ahmed Khalil's GitHub stats](https://github-readme-stats.vercel.app/api?username=AhmedKhalil777&show_icons=true&theme=radical)
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=AhmedKhalil777&" alt="AhmedKhalil777" /></p> 
-
-## Wakatime
-[![Ahmed Khalils's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=willianrod)](https://github.com/AhmedKhalil777/github-readme-stats)
-
 
 ## Technologies
 <div>
