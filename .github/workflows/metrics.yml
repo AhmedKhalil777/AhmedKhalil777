@@ -57,7 +57,7 @@ jobs:
           token: ${{ secrets.METRICS_SECRET }}
 
           # Options
-          user: AhmedKhalil777
+          user: seglo
           template: classic
           base: activity, community
   iso_calender:
