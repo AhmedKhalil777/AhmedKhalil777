@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Khalil - Age Counter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .counter-container {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            max-width: 950px;
+            width: 100%;
+        }
+        h1 {
+            color: #00ff41;
+            margin-bottom: 30px;
+        }
+        .counters {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .counter {
+            margin: 10px;
+            flex: 1;
+            min-width: 140px;
+        }
+        .counter-value {
+            font-size: 38px;
+            font-weight: bold;
+            color: #00ff41;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .counter-label {
+            font-size: 16px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .progress-container {
+            background-color: #222;
+            border-radius: 5px;
+            height: 15px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .progress-bar {
+            background-color: #00ff41;
+            opacity: 0.7;
+            height: 100%;
+            border-radius: 5px;
+            width: 0;
+        }
+        .info {
+            color: #818181;
+            margin-top: 30px;
+        }
+        .tab-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            background-color: #333;
+            border: none;
+            color: #e0e0e0;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+        .tab-button.active {
+            background-color: #00ff41;
+            color: #000;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <h1>Ahmed Khalil's Age Counter</h1>
+        
+        <div class="tab-container">
+            <button class="tab-button active" onclick="showTab('birth')">Since Birth</button>
+            <button class="tab-button" onclick="showTab('coding')">Coding Career</button>
+            <button class="tab-button" onclick="showTab('job')">Professional Career</button>
+        </div>
+        
+        <div id="birth-tab" class="tab-content active">
+            <div class="counters">
+                <div class="counter">
+                    <div class="counter-label">YEARS</div>
+                    <div id="birth-years" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="birth-years-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="counter">
+                    <div class="counter-label">MONTHS</div>
+                    <div id="birth-months" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="birth-months-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="counter">
+                    <div class="counter-label">DAYS</div>
+                    <div id="birth-days" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="birth-days-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="coding-tab" class="tab-content">
+            <div class="counters">
+                <div class="counter">
+                    <div class="counter-label">YEARS</div>
+                    <div id="coding-years" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="coding-years-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="counter">
+                    <div class="counter-label">MONTHS</div>
+                    <div id="coding-months" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="coding-months-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="counter">
+                    <div class="counter-label">DAYS</div>
+                    <div id="coding-days" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="coding-days-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="job-tab" class="tab-content">
+            <div class="counters">
+                <div class="counter">
+                    <div class="counter-label">YEARS</div>
+                    <div id="job-years" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="job-years-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="counter">
+                    <div class="counter-label">MONTHS</div>
+                    <div id="job-months" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="job-months-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="counter">
+                    <div class="counter-label">DAYS</div>
+                    <div id="job-days" class="counter-value">00</div>
+                    <div class="progress-container">
+                        <div id="job-days-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info">
+            <p>Born: January 1, 1998</p>
+            <p>Actively coding since July 2, 2015</p>
+            <p>Professional career since April 2, 2018</p>
+        </div>
+    </div>
+
+    <script>
+        // Set birth date and coding start date
+        const birthdate = new Date('1998-01-01T00:00:00');
+        const codingStartDate = new Date('2015-07-02T00:00:00');
+        const jobStartDate = new Date('2018-04-02T00:00:00');
+        
+        // Show tab
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelector(`button[onclick="showTab('${tabName}')"]`).classList.add('active');
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+        
+        // Calculate exact age (not cumulative)
+        function calculateExactAge(startDate) {
+            const now = new Date();
+            
+            // Years
+            let years = now.getFullYear() - startDate.getFullYear();
+            
+            // Check if birthday has occurred this year
+            if (now.getMonth() < startDate.getMonth() || 
+                (now.getMonth() === startDate.getMonth() && now.getDate() < startDate.getDate())) {
+                years--;
+            }
+            
+            // Calculate months since last birthday
+            let months = now.getMonth() - startDate.getMonth();
+            if (months < 0) {
+                months += 12;
+            }
+            if (now.getDate() < startDate.getDate()) {
+                months--;
+                if (months < 0) {
+                    months += 12;
+                }
+            }
+            
+            // Calculate days in current month
+            let days;
+            if (now.getDate() < startDate.getDate()) {
+                // Get last month
+                const lastMonth = new Date(now);
+                lastMonth.setDate(0); // Go to last day of previous month
+                days = (now.getDate() + lastMonth.getDate()) - startDate.getDate();
+            } else {
+                days = now.getDate() - startDate.getDate();
+            }
+            
+            // Calculate progress percentages
+            const yearProgress = (now.getMonth() / 12) * 100;
+            const monthProgress = (now.getDate() / new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate()) * 100;
+            const dayProgress = (now.getHours() / 24) * 100;
+            
+            return {
+                years,
+                months,
+                days,
+                progress: {
+                    years: yearProgress,
+                    months: monthProgress,
+                    days: dayProgress
+                }
+            };
+        }
+        
+        // Update display with calculated age
+        function updateDisplay() {
+            const birthAge = calculateExactAge(birthdate);
+            const codingAge = calculateExactAge(codingStartDate);
+            const jobAge = calculateExactAge(jobStartDate);
+            
+            // Update birth age display
+            document.getElementById("birth-years").textContent = birthAge.years.toString().padStart(2, '0');
+            document.getElementById("birth-months").textContent = birthAge.months.toString().padStart(2, '0');
+            document.getElementById("birth-days").textContent = birthAge.days.toString().padStart(2, '0');
+            
+            document.getElementById("birth-years-progress").style.width = `${birthAge.progress.years}%`;
+            document.getElementById("birth-months-progress").style.width = `${birthAge.progress.months}%`;
+            document.getElementById("birth-days-progress").style.width = `${birthAge.progress.days}%`;
+            
+            // Update coding age display
+            document.getElementById("coding-years").textContent = codingAge.years.toString().padStart(2, '0');
+            document.getElementById("coding-months").textContent = codingAge.months.toString().padStart(2, '0');
+            document.getElementById("coding-days").textContent = codingAge.days.toString().padStart(2, '0');
+            
+            document.getElementById("coding-years-progress").style.width = `${codingAge.progress.years}%`;
+            document.getElementById("coding-months-progress").style.width = `${codingAge.progress.months}%`;
+            document.getElementById("coding-days-progress").style.width = `${codingAge.progress.days}%`;
+            
+            // Update job age display
+            document.getElementById("job-years").textContent = jobAge.years.toString().padStart(2, '0');
+            document.getElementById("job-months").textContent = jobAge.months.toString().padStart(2, '0');
+            document.getElementById("job-days").textContent = jobAge.days.toString().padStart(2, '0');
+            
+            document.getElementById("job-years-progress").style.width = `${jobAge.progress.years}%`;
+            document.getElementById("job-months-progress").style.width = `${jobAge.progress.months}%`;
+            document.getElementById("job-days-progress").style.width = `${jobAge.progress.days}%`;
+        }
+        
+        // Initialize and start updates
+        updateDisplay();
+        setInterval(updateDisplay, 1000);
+    </script>
+</body>
+</html> 

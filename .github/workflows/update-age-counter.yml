@@ -1,0 +1,202 @@
+name: Update Age Counter
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+  workflow_dispatch:     # Allow manual triggering
+
+jobs:
+  update-counter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          
+      - name: Update Age Counter SVG
+        run: |
+          # Calculate age values
+          BIRTH_DATE="1998-01-01"
+          CODING_START_DATE="2015-07-02"
+          CAREER_START_DATE="2018-04-02"
+          NOW=$(date +"%Y-%m-%d %H:%M:%S")
+          
+          # Calculate age since birth
+          BIRTH_YEAR=$(date -d "$BIRTH_DATE" +%Y)
+          BIRTH_MONTH=$(date -d "$BIRTH_DATE" +%m)
+          BIRTH_DAY=$(date -d "$BIRTH_DATE" +%d)
+          
+          CURRENT_YEAR=$(date -d "$NOW" +%Y)
+          CURRENT_MONTH=$(date -d "$NOW" +%m)
+          CURRENT_DAY=$(date -d "$NOW" +%d)
+          
+          # Calculate years since birth
+          YEARS=$((CURRENT_YEAR - BIRTH_YEAR))
+          
+          # Adjust years if haven't reached birthday this year
+          if [ "$CURRENT_MONTH" -lt "$BIRTH_MONTH" ] || [ "$CURRENT_MONTH" -eq "$BIRTH_MONTH" -a "$CURRENT_DAY" -lt "$BIRTH_DAY" ]; then
+            YEARS=$((YEARS - 1))
+          fi
+          
+          # Calculate months since last birthday
+          MONTHS=$((CURRENT_MONTH - BIRTH_MONTH))
+          if [ $MONTHS -lt 0 ]; then
+            MONTHS=$((MONTHS + 12))
+          fi
+          if [ "$CURRENT_DAY" -lt "$BIRTH_DAY" ]; then
+            MONTHS=$((MONTHS - 1))
+            if [ $MONTHS -lt 0 ]; then
+              MONTHS=$((MONTHS + 12))
+            fi
+          fi
+          
+          # Calculate days in current month
+          if [ "$CURRENT_DAY" -lt "$BIRTH_DAY" ]; then
+            # Get last month (could be previous year)
+            LAST_MONTH=$((CURRENT_MONTH - 1))
+            LAST_MONTH_YEAR=$CURRENT_YEAR
+            if [ $LAST_MONTH -eq 0 ]; then
+              LAST_MONTH=12
+              LAST_MONTH_YEAR=$((CURRENT_YEAR - 1))
+            fi
+            
+            # Get days in last month
+            DAYS_IN_LAST_MONTH=$(date -d "$LAST_MONTH_YEAR-$LAST_MONTH-01 +1 month -1 day" +%d)
+            DAYS=$((CURRENT_DAY + DAYS_IN_LAST_MONTH - BIRTH_DAY))
+          else
+            DAYS=$((CURRENT_DAY - BIRTH_DAY))
+          fi
+          
+          # Calculate coding years since start
+          CODING_YEAR=$(date -d "$CODING_START_DATE" +%Y)
+          CODING_MONTH=$(date -d "$CODING_START_DATE" +%m)
+          CODING_DAY=$(date -d "$CODING_START_DATE" +%d)
+          
+          # Calculate years
+          CODING_YEARS=$((CURRENT_YEAR - CODING_YEAR))
+          
+          # Adjust coding years if haven't reached anniversary this year
+          if [ "$CURRENT_MONTH" -lt "$CODING_MONTH" ] || [ "$CURRENT_MONTH" -eq "$CODING_MONTH" -a "$CURRENT_DAY" -lt "$CODING_DAY" ]; then
+            CODING_YEARS=$((CODING_YEARS - 1))
+          fi
+          
+          # Calculate age since career start
+          CAREER_YEAR=$(date -d "$CAREER_START_DATE" +%Y)
+          CAREER_MONTH=$(date -d "$CAREER_START_DATE" +%m)
+          CAREER_DAY=$(date -d "$CAREER_START_DATE" +%d)
+          
+          # Calculate years
+          CAREER_YEARS=$((CURRENT_YEAR - CAREER_YEAR))
+          
+          # Adjust years if haven't reached career anniversary this year
+          if [ "$CURRENT_MONTH" -lt "$CAREER_MONTH" ] || [ "$CURRENT_MONTH" -eq "$CAREER_MONTH" -a "$CURRENT_DAY" -lt "$CAREER_DAY" ]; then
+            CAREER_YEARS=$((CAREER_YEARS - 1))
+          fi
+          
+          # Create updated SVG with actual values
+          cat > age-counter.svg << EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="350" viewBox="0 0 1000 350">
+            <style>
+              .title {
+                fill: #00ff41;
+                font-family: 'Courier New', monospace;
+                font-size: 36px;
+                font-weight: bold;
+                text-anchor: middle;
+              }
+              .age-value {
+                fill: #00ff41;
+                font-family: monospace;
+                font-size: 48px;
+                font-weight: bold;
+                text-anchor: middle;
+              }
+              .age-label {
+                fill: #4CAF50;
+                font-family: Arial, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                text-anchor: middle;
+              }
+              .birthdate {
+                fill: #818181;
+                font-family: Arial, sans-serif;
+                font-size: 18px;
+                text-anchor: middle;
+              }
+              .progress-bg {
+                fill: #2d2d2d;
+                rx: 5;
+              }
+              .progress-fill {
+                fill: #00ff41;
+                opacity: 0.7;
+                rx: 5;
+              }
+              .section-title {
+                fill: #00a5e5;
+                font-family: Arial, sans-serif;
+                font-size: 22px;
+                font-weight: bold;
+                text-anchor: middle;
+              }
+            </style>
+            
+            <rect width="100%" height="100%" fill="#1e1e1e" rx="10" ry="10" />
+            <text class="title" x="500" y="40">Ahmed Khalil's Age Counter</text>
+            
+            <!-- Born Section -->
+            <text class="section-title" x="500" y="80">Since Birth (Jan 1, 1998)</text>
+            
+            <!-- Years -->
+            <text class="age-label" x="250" y="120">YEARS</text>
+            <text class="age-value" x="250" y="170">$YEARS</text>
+            <rect class="progress-bg" x="150" y="190" width="200" height="20" />
+            <rect class="progress-fill" x="150" y="190" width="$((CURRENT_MONTH * 16))" height="20" />
+            
+            <!-- Months -->
+            <text class="age-label" x="500" y="120">MONTHS</text>
+            <text class="age-value" x="500" y="170">$MONTHS</text>
+            <rect class="progress-bg" x="400" y="190" width="200" height="20" />
+            <rect class="progress-fill" x="400" y="190" width="$((CURRENT_DAY * 6))" height="20" />
+            
+            <!-- Days -->
+            <text class="age-label" x="750" y="120">DAYS</text>
+            <text class="age-value" x="750" y="170">$DAYS</text>
+            <rect class="progress-bg" x="650" y="190" width="200" height="20" />
+            <rect class="progress-fill" x="650" y="190" width="$((DAYS * 6))" height="20" />
+            
+            <!-- Coding Section -->
+            <text class="section-title" x="325" y="240">Coding Journey (Jul 2, 2015)</text>
+            
+            <!-- Coding Years -->
+            <text class="age-label" x="250" y="280">YEARS</text>
+            <text class="age-value" x="250" y="330">$CODING_YEARS</text>
+            <rect class="progress-bg" x="150" y="350" width="200" height="20" />
+            <rect class="progress-fill" x="150" y="350" width="$((CURRENT_MONTH * 16))" height="20" />
+            
+            <!-- Career Section -->
+            <text class="section-title" x="675" y="240">Professional Career (Apr 2, 2018)</text>
+            
+            <!-- Career Years -->
+            <text class="age-label" x="675" y="280">YEARS</text>
+            <text class="age-value" x="675" y="330">$CAREER_YEARS</text>
+            <rect class="progress-bg" x="575" y="350" width="200" height="20" />
+            <rect class="progress-fill" x="575" y="350" width="$((CURRENT_MONTH * 16))" height="20" />
+            
+            <text class="birthdate" x="500" y="390">Born: January 1, 1998 • Coding: July 2, 2015 • Career: April 2, 2018</text>
+          </svg>
+          EOF
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add age-counter.svg
+          git commit -m "Update age counter" || echo "No changes to commit"
+          git push 

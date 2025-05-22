@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="350" viewBox="0 0 1000 350">
+  <style>
+    .title {
+      fill: #00ff41;
+      font-family: 'Courier New', monospace;
+      font-size: 36px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .age-value {
+      fill: #00ff41;
+      font-family: monospace;
+      font-size: 48px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .age-label {
+      fill: #4CAF50;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .birthdate {
+      fill: #818181;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      text-anchor: middle;
+    }
+    .progress-bg {
+      fill: #2d2d2d;
+      rx: 5;
+    }
+    .progress-fill {
+      fill: #00ff41;
+      opacity: 0.7;
+      rx: 5;
+    }
+    .section-title {
+      fill: #00a5e5;
+      font-family: Arial, sans-serif;
+      font-size: 22px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+  </style>
+  
+  <rect width="100%" height="100%" fill="#1e1e1e" rx="10" ry="10" />
+  <text class="title" x="500" y="40">Ahmed Khalil's Age Counter</text>
+  
+  <!-- Born Section -->
+  <text class="section-title" x="500" y="80">Since Birth (Jan 1, 1998)</text>
+  
+  <!-- Years -->
+  <text class="age-label" x="250" y="120">YEARS</text>
+  <text class="age-value" x="250" y="170">27</text>
+  <rect class="progress-bg" x="150" y="190" width="200" height="20" />
+  <rect class="progress-fill" x="150" y="190" width="150" height="20" />
+  
+  <!-- Months -->
+  <text class="age-label" x="500" y="120">MONTHS</text>
+  <text class="age-value" x="500" y="170">4</text>
+  <rect class="progress-bg" x="400" y="190" width="200" height="20" />
+  <rect class="progress-fill" x="400" y="190" width="140" height="20" />
+  
+  <!-- Days -->
+  <text class="age-label" x="750" y="120">DAYS</text>
+  <text class="age-value" x="750" y="170">15</text>
+  <rect class="progress-bg" x="650" y="190" width="200" height="20" />
+  <rect class="progress-fill" x="650" y="190" width="100" height="20" />
+  
+  <!-- Coding Section -->
+  <text class="section-title" x="325" y="240">Coding Journey (Jul 2, 2015)</text>
+  
+  <!-- Coding Years -->
+  <text class="age-label" x="250" y="280">YEARS</text>
+  <text class="age-value" x="250" y="330">8</text>
+  <rect class="progress-bg" x="150" y="350" width="200" height="20" />
+  <rect class="progress-fill" x="150" y="350" width="160" height="20" />
+  
+  <!-- Career Section -->
+  <text class="section-title" x="675" y="240">Professional Career (Apr 2, 2018)</text>
+  
+  <!-- Career Years -->
+  <text class="age-label" x="675" y="280">YEARS</text>
+  <text class="age-value" x="675" y="330">6</text>
+  <rect class="progress-bg" x="575" y="350" width="200" height="20" />
+  <rect class="progress-fill" x="575" y="350" width="130" height="20" />
+  
+  <text class="birthdate" x="500" y="390">Born: January 1, 1998 • Coding: July 2, 2015 • Career: April 2, 2018</text>
+</svg> 
