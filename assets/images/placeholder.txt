@@ -1,0 +1,23 @@
+# Portfolio Images
+
+This directory should contain the following images for the portfolio:
+
+## Profile Images
+- profile.jpg - Main profile photo of Ahmed Khalil
+- about-image.jpg - Secondary profile image for about section
+
+## Project Images
+- project1.jpg - E-Commerce Platform screenshot
+- project2.jpg - Microservices API Gateway screenshot  
+- project3.jpg - Real-time Analytics Dashboard screenshot
+- project4.jpg - Mobile App Backend API screenshot
+- project5.jpg - Blazor Web Application screenshot
+- project6.jpg - Cloud Migration Project screenshot
+
+## Technology Icons
+- All technology icons are referenced from the existing Pics directory in the main project
+- These include: csharp-logo.png, Ts.png, js.png, python.png, angular.png, blazor.png, etc.
+
+## Usage
+Replace the placeholder images with actual screenshots and photos for a professional portfolio presentation.
+

@@ -1,0 +1,300 @@
+{
+  "personalInfo": {
+    "name": "Ahmed Khalil",
+    "title": "Senior .NET Engineer",
+    "subtitle": "Full-Stack Developer",
+    "description": "Passionate about building scalable applications with .NET, Angular, and Azure. I specialize in microservices architecture, cloud solutions, and modern web technologies.",
+    "image": "assets/images/AhmedKhalil.png",
+    "location": "Egypt",
+    "email": "ahmed.khalil@example.com",
+    "phone": "+20 123 456 7890",
+    "website": "https://ahmedkhalil.dev",
+    "linkedin": "https://linkedin.com/in/ahmedkhalil",
+    "github": "https://github.com/ahmedkhalil"
+  },
+  "hero": {
+    "title": "Hi, I'm Ahmed Khalil",
+    "subtitle": "Senior .NET Engineer & Full-Stack Developer",
+    "description": "Passionate about building scalable applications with .NET, Angular, and Azure. I specialize in microservices architecture, cloud solutions, and modern web technologies.",
+    "buttons": [
+      {
+        "text": "View My Work",
+        "icon": "fas fa-code",
+        "link": "#projects",
+        "type": "primary"
+      },
+      {
+        "text": "Get In Touch",
+        "icon": "fas fa-envelope",
+        "link": "#contact",
+        "type": "secondary"
+      }
+    ],
+    "stats": [
+      {
+        "icon": "fas fa-clock",
+        "number": "7+",
+        "label": "Years Experience"
+      },
+      {
+        "icon": "fas fa-code",
+        "number": "50+",
+        "label": "Projects Completed"
+      },
+      {
+        "icon": "fas fa-tools",
+        "number": "20+",
+        "label": "Technologies"
+      }
+    ],
+    "image": "assets/images/AhmedKhalil.png",
+    "imageAlt": "Ahmed Khalil",
+    "techBadges": [
+      {
+        "icon": "fab fa-microsoft",
+        "label": ".NET",
+        "delay": 800
+      },
+      {
+        "icon": "fab fa-angular",
+        "label": "Angular",
+        "delay": 900
+      },
+      {
+        "icon": "fab fa-microsoft",
+        "label": "Azure",
+        "delay": 1000
+      },
+      {
+        "icon": "fas fa-cloud",
+        "label": "Cloud",
+        "delay": 1100
+      }
+    ]
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "The story behind the code",
+    "greeting": "Hello! I'm Ahmed Khalil",
+    "introText": "A passionate Senior .NET Engineer with over 7 years of experience crafting scalable, high-performance applications that make a difference.",
+    "storyHighlights": [
+      {
+        "icon": "fas fa-graduation-cap",
+        "title": "Academic Excellence",
+        "description": "B.Sc. Computer Science - Mansoura University (2020)",
+        "achievement": "Graduated with Honors"
+      },
+      {
+        "icon": "fas fa-rocket",
+        "title": "Current Mission",
+        "description": "Senior .NET Engineer at Integrant Inc.",
+        "achievement": "Leading Digital Transformation"
+      },
+      {
+        "icon": "fas fa-globe",
+        "title": "Global Impact",
+        "description": "Based in Egypt, Serving Worldwide",
+        "achievement": "Remote Work Specialist"
+      }
+    ],
+    "passionTitle": "What Drives Me",
+    "passionText": "I'm passionate about building solutions that solve real-world problems. When I'm not architecting microservices or optimizing cloud infrastructure, you'll find me exploring the latest in AI/ML, contributing to open-source projects, or mentoring the next generation of developers.",
+    "image": "assets/images/AhmedKhalil.png",
+    "imageAlt": "Ahmed Khalil",
+    "overlayTitle": "Let's Build Something Amazing!",
+    "overlayText": "Ready to turn your ideas into reality",
+    "overlayButton": {
+      "text": "Start a Conversation",
+      "icon": "fas fa-comments",
+      "link": "#contact",
+      "type": "primary"
+    },
+    "techBadges": [
+      {
+        "icon": "fab fa-microsoft",
+        "label": ".NET Expert",
+        "delay": 200
+      },
+      {
+        "icon": "fab fa-angular",
+        "label": "Angular Pro",
+        "delay": 400
+      },
+      {
+        "icon": "fas fa-cloud",
+        "label": "Azure Cloud",
+        "delay": 600
+      }
+    ],
+    "achievementStats": [
+      {
+        "icon": "fas fa-code",
+        "number": "50+",
+        "label": "Projects"
+      },
+      {
+        "icon": "fas fa-users",
+        "number": "20+",
+        "label": "Clients"
+      },
+      {
+        "icon": "fas fa-clock",
+        "number": "7+",
+        "label": "Years"
+      },
+      {
+        "icon": "fas fa-trophy",
+        "number": "15+",
+        "label": "Certs"
+      }
+    ]
+  },
+  "header": {
+    "brandName": "Ahmed Khalil",
+    "brandSubtitle": "Senior .NET Engineer",
+    "navigation": [
+      {
+        "text": "Home",
+        "link": "#home"
+      },
+      {
+        "text": "About",
+        "link": "#about"
+      },
+      {
+        "text": "Skills",
+        "link": "#skills"
+      },
+      {
+        "text": "Projects",
+        "link": "#projects"
+      },
+      {
+        "text": "Experience",
+        "link": "#experience"
+      },
+      {
+        "text": "Contact",
+        "link": "#contact"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": ".NET Core",
+      "level": 95,
+      "icon": "fab fa-microsoft",
+      "category": "Backend"
+    },
+    {
+      "name": "Angular",
+      "level": 90,
+      "icon": "fab fa-angular",
+      "category": "Frontend"
+    },
+    {
+      "name": "Azure",
+      "level": 85,
+      "icon": "fas fa-cloud",
+      "category": "Cloud"
+    },
+    {
+      "name": "C#",
+      "level": 95,
+      "icon": "fas fa-code",
+      "category": "Programming"
+    },
+    {
+      "name": "TypeScript",
+      "level": 90,
+      "icon": "fab fa-js-square",
+      "category": "Programming"
+    },
+    {
+      "name": "SQL Server",
+      "level": 85,
+      "icon": "fas fa-database",
+      "category": "Database"
+    },
+    {
+      "name": "Docker",
+      "level": 80,
+      "icon": "fab fa-docker",
+      "category": "DevOps"
+    },
+    {
+      "name": "Microservices",
+      "level": 85,
+      "icon": "fas fa-cubes",
+      "category": "Architecture"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-1",
+      "title": "E-Commerce Platform",
+      "description": "A full-stack e-commerce solution built with .NET Core, Angular, and Azure. Features include real-time inventory management, payment processing, and analytics dashboard.",
+      "image": "assets/images/project1.jpg",
+      "technologies": [".NET Core", "Angular", "Azure", "SQL Server"],
+      "liveUrl": "https://demo-ecommerce.com",
+      "githubUrl": "https://github.com/ahmedkhalil/ecommerce",
+      "featured": true
+    },
+    {
+      "id": "project-2",
+      "title": "Healthcare Management System",
+      "description": "A comprehensive healthcare management system with patient records, appointment scheduling, and telemedicine capabilities.",
+      "image": "assets/images/project2.jpg",
+      "technologies": [".NET Core", "Angular", "Azure", "Cosmos DB"],
+      "liveUrl": "https://demo-healthcare.com",
+      "githubUrl": "https://github.com/ahmedkhalil/healthcare",
+      "featured": true
+    },
+    {
+      "id": "project-3",
+      "title": "Real-time Analytics Dashboard",
+      "description": "A real-time analytics dashboard for monitoring business metrics with interactive charts and automated reporting.",
+      "image": "assets/images/project3.jpg",
+      "technologies": [".NET Core", "Angular", "SignalR", "Azure"],
+      "liveUrl": "https://demo-analytics.com",
+      "githubUrl": "https://github.com/ahmedkhalil/analytics",
+      "featured": false
+    }
+  ],
+  "experience": [
+    {
+      "company": "Integrant Inc.",
+      "position": "Senior .NET Engineer",
+      "duration": "2022 - Present",
+      "description": "Leading development of enterprise-scale applications using .NET Core, Angular, and Azure. Mentoring junior developers and architecting microservices solutions.",
+      "technologies": [".NET Core", "Angular", "Azure", "Microservices", "Docker"],
+      "achievements": [
+        "Led development of 5+ enterprise applications",
+        "Reduced system response time by 40%",
+        "Mentored 3 junior developers",
+        "Implemented CI/CD pipelines"
+      ]
+    },
+    {
+      "company": "Tech Solutions Ltd.",
+      "position": ".NET Developer",
+      "duration": "2020 - 2022",
+      "description": "Developed web applications using .NET Framework, ASP.NET MVC, and SQL Server. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+      "technologies": [".NET Framework", "ASP.NET MVC", "SQL Server", "JavaScript", "Bootstrap"],
+      "achievements": [
+        "Developed 10+ web applications",
+        "Improved code quality by 30%",
+        "Implemented automated testing",
+        "Reduced deployment time by 50%"
+      ]
+    }
+  ],
+  "contact": {
+    "email": "progeng_ahmed_khalil@outlook.com",
+    "phone": "+20 1098943543",
+    "location": "Egypt",
+    "linkedin": "https://linkedin.com/in/ahmedkhalil",
+    "github": "https://github.com/ahmedkhalil",
+    "website": "https://ahmedkhalil.dev"
+  }
+}
