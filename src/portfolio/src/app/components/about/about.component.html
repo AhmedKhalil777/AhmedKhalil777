@@ -1,0 +1,73 @@
+<section class="about">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">{{ (aboutData$ | async)?.title || 'About Me' }}</h2>
+      <p class="section-subtitle">{{ (aboutData$ | async)?.subtitle || 'The story behind the code' }}</p>
+    </div>
+    
+    <div class="about-content auto-scroll-content" *ngIf="aboutData$ | async as aboutData">
+      <div class="about-text" data-aos="fade-right">
+        <div class="about-card">
+          <h3>{{ aboutData.greeting }}</h3>
+          <p class="intro-text">{{ aboutData.introText }}</p>
+          
+          <div class="story-highlights">
+            <div class="story-item" *ngFor="let story of aboutData.storyHighlights">
+              <div class="story-icon">
+                <i [class]="story.icon"></i>
+              </div>
+              <div class="story-content">
+                <h4>{{ story.title }}</h4>
+                <p>{{ story.description }}</p>
+                <span class="achievement">{{ story.achievement }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="passion-section">
+            <h4>{{ aboutData.passionTitle }}</h4>
+            <p>{{ aboutData.passionText }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-image" data-aos="fade-left">
+        <div class="image-wrapper">
+          <img [src]="getImagePath(aboutData.image)" [alt]="aboutData.imageAlt" class="about-img">
+          <div class="image-overlay">
+            <div class="overlay-content">
+              <h4>{{ aboutData.overlayTitle }}</h4>
+              <p>{{ aboutData.overlayText }}</p>
+              <a [href]="aboutData.overlayButton.link" class="btn btn-primary">
+                <i [class]="aboutData.overlayButton.icon"></i>
+                {{ aboutData.overlayButton.text }}
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="floating-tech-badges">
+          <div class="tech-badge" 
+               *ngFor="let badge of aboutData.techBadges" 
+               data-aos="zoom-in" 
+               [attr.data-aos-delay]="badge.delay">
+            <i [class]="badge.icon"></i>
+            <span>{{ badge.label }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="achievement-stats" data-aos="fade-up" data-aos-delay="400">
+        <div class="stat-card" *ngFor="let stat of aboutData.achievementStats">
+          <div class="stat-icon">
+            <i [class]="stat.icon"></i>
+          </div>
+          <div class="stat-content">
+            <h3>{{ stat.number }}</h3>
+            <p>{{ stat.label }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

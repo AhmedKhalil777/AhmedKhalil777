@@ -1,0 +1,30 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a href="#home" class="brand-link" *ngIf="headerData$ | async as headerData">
+        <span class="brand-text">{{ headerData.brandName }}</span>
+        <span class="brand-subtitle">{{ headerData.brandSubtitle }}</span>
+      </a>
+    </div>
+    
+    <div class="nav-menu" [class.active]="isMenuOpen">
+      <ul class="nav-list" *ngIf="headerData$ | async as headerData">
+        <li class="nav-item" *ngFor="let navItem of headerData.navigation">
+          <a [href]="navItem.link" class="nav-link" (click)="closeMenu()">{{ navItem.text }}</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="nav-actions">
+      <button class="movie-toggle" (click)="toggleMovie()" [class.active]="isMovieMode" [title]="isMovieMode ? 'Stop Movie' : 'Start Movie'">
+        <i class="fas" [class.fa-play]="!isMovieMode" [class.fa-stop]="isMovieMode"></i>
+      </button>
+      <button class="theme-toggle" (click)="toggleTheme()" [class.dark]="isDarkMode">
+        <i class="fas" [class.fa-moon]="!isDarkMode" [class.fa-sun]="isDarkMode"></i>
+      </button>
+      <div class="nav-toggle" (click)="toggleMenu()">
+        <span class="hamburger" [class.active]="isMenuOpen"></span>
+      </div>
+    </div>
+  </nav>
+</header>

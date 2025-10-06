@@ -1,0 +1,64 @@
+<section class="hero">
+  <div class="hero-background">
+    <div class="particles" id="particles-js"></div>
+  </div>
+  
+  <div class="hero-content auto-scroll-content">
+    <div class="container">
+      <div class="hero-text" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="hero-title" *ngIf="heroData$ | async as heroData">
+          Hi, I'm <span class="highlight">{{ heroData.title.split(' ').slice(2).join(' ') }}</span>
+        </h1>
+        <h2 class="hero-subtitle">{{ (heroData$ | async)?.subtitle || 'Senior .NET Engineer & Full-Stack Developer' }}</h2>
+        <p class="hero-description">{{ (heroData$ | async)?.description || 'Passionate about building scalable applications...' }}</p>
+        
+        <div class="hero-buttons" *ngIf="heroData$ | async as heroData">
+          <a *ngFor="let button of heroData.buttons" 
+             [href]="button.link" 
+             [class]="'btn btn-' + button.type">
+            <i [class]="button.icon"></i>
+            {{ button.text }}
+          </a>
+        </div>
+        
+        <div class="hero-stats" *ngIf="heroData$ | async as heroData">
+          <div class="stat-item" 
+               *ngFor="let stat of heroData.stats" 
+               data-aos="fade-up" 
+               [attr.data-aos-delay]="200">
+            <span class="stat-number">{{ stat.number }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+        <div class="image-container">
+          <div class="profile-image">
+            <img *ngIf="heroData$ | async as heroData"
+                 [src]="getImagePath(heroData.image)" 
+                 [alt]="heroData.imageAlt" 
+                 class="profile-img">
+            <div class="image-overlay">
+              <div class="tech-badges" *ngIf="heroData$ | async as heroData">
+                <div class="badge" 
+                     *ngFor="let badge of heroData.techBadges" 
+                     data-aos="zoom-in" 
+                     [attr.data-aos-delay]="badge.delay">
+                  <i [class]="badge.icon"></i>
+                  <span>{{ badge.label }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator">
+    <div class="scroll-arrow" data-aos="fade-in" data-aos-delay="1200">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+</section>

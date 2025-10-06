@@ -1,0 +1,171 @@
+<section class="contact">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-subtitle">Ready to build something amazing? Let's discuss your next project!</p>
+    </div>
+    
+    <div class="contact-content auto-scroll-content">
+      <div class="contact-info" data-aos="fade-right">
+        <div class="info-card">
+          <h3>Ready to Collaborate</h3>
+          <p>
+            With over 7 years of experience in .NET and Angular development, I'm passionate about 
+            creating scalable, high-performance applications. Let's discuss how we can bring your 
+            vision to life with cutting-edge technology.
+          </p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="method-content">
+                <h4>Email</h4>
+                <p>progeng_ahmed_khalil&#64;outlook.com</p>
+                <a href="mailto:progeng_ahmed_khalil@outlook.com" class="contact-link">Send Email</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div class="method-content">
+                <h4>LinkedIn</h4>
+                <p>Connect with a Senior .NET Engineer</p>
+                <a href="https://www.linkedin.com/in/ahmed-khalil-b09abb176/" target="_blank" class="contact-link">View Profile</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <div class="method-content">
+                <h4>GitHub</h4>
+                <p>Explore my enterprise-level solutions</p>
+                <a href="https://github.com/AhmedKhalil777" target="_blank" class="contact-link">View Repositories</a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fab fa-twitter"></i>
+              </div>
+              <div class="method-content">
+                <h4>Twitter</h4>
+                <p>Follow for .NET & Angular insights</p>
+                <a href="https://twitter.com/ProgengAhmd" target="_blank" class="contact-link">Follow Me</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="availability">
+            <h4>Availability</h4>
+            <div class="availability-status">
+              <div class="status-indicator available"></div>
+              <span>Open to new opportunities</span>
+            </div>
+            <p class="availability-note">
+              Currently accepting new projects and consulting opportunities. 
+              Let's discuss how I can help bring your ideas to life!
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form" data-aos="fade-left">
+        <div class="form-card">
+          <h3>Start a Conversation</h3>
+          <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                [(ngModel)]="formData.name" 
+                required 
+                class="form-control"
+                placeholder="Your full name"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                [(ngModel)]="formData.email" 
+                required 
+                class="form-control"
+                placeholder="your.email@example.com"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input 
+                type="text" 
+                id="subject" 
+                name="subject" 
+                [(ngModel)]="formData.subject" 
+                required 
+                class="form-control"
+                placeholder="What's this about?"
+              >
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                [(ngModel)]="formData.message" 
+                required 
+                rows="5" 
+                class="form-control"
+                placeholder="Describe your project requirements or ask about my services"
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              class="btn btn-primary submit-btn"
+              [disabled]="!contactForm.valid || isSubmitting"
+            >
+              <i class="fas fa-paper-plane" *ngIf="!isSubmitting"></i>
+              <i class="fas fa-spinner fa-spin" *ngIf="isSubmitting"></i>
+              {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Social Links -->
+    <div class="social-section" data-aos="fade-up" data-aos-delay="300">
+      <h3>Connect & Follow</h3>
+      <div class="social-links">
+        <a href="https://github.com/AhmedKhalil777" target="_blank" class="social-link github">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ahmed-khalil-b09abb176/" target="_blank" class="social-link linkedin">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://twitter.com/ProgengAhmd" target="_blank" class="social-link twitter">
+          <i class="fab fa-twitter"></i>
+          <span>Twitter</span>
+        </a>
+        <a href="https://www.facebook.com/ProgENGAhmedKhalil/" target="_blank" class="social-link facebook">
+          <i class="fab fa-facebook"></i>
+          <span>Facebook</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

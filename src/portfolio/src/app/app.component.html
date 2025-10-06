@@ -1,0 +1,26 @@
+<div class="app-container">
+  <app-header></app-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
+  
+  <!-- Movie Mode Indicator -->
+  <div class="movie-indicator" *ngIf="isMovieMode">
+    <div class="movie-icon">
+      <i class="fas fa-film"></i>
+    </div>
+    <div class="movie-text">Movie Mode</div>
+  </div>
+  
+  <!-- Movie Stopped Indicator -->
+  <div class="movie-stopped-indicator" *ngIf="!isMovieMode && wasMovieMode">
+    <div class="stopped-icon">
+      <i class="fas fa-pause"></i>
+    </div>
+    <div class="stopped-text">Movie Stopped - User Scrolled</div>
+  </div>
+  
+  <!-- Typewriter Component -->
+  <app-typewriter></app-typewriter>
+</div>
