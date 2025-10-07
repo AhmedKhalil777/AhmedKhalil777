@@ -1,17 +1,30 @@
-name: Deploy to GitHub Pages
+name: Deploy Angular Portfolio to GitHub Pages
 
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch: # Allow manual triggering
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-    - name: Checkout
+    - name: Checkout repository
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
@@ -26,17 +39,21 @@ jobs:
     - name: Install dependencies
       run: |
         cd src/portfolio
-        npm install
+        npm ci --prefer-offline --no-audit
 
     - name: Build Angular application
       run: |
         cd src/portfolio
         npm run build -- --configuration=production --base-href="/AhmedKhalil777/"
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./src/portfolio/dist/portfolio
-        cname: ""
+        path: './src/portfolio/dist/portfolio'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
