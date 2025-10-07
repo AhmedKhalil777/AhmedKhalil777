@@ -33,13 +33,13 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
-        cache-dependency-path: 'src/portfolio/package-lock.json'
 
-    - name: Install dependencies
+    - name: Clean npm cache and install dependencies
       run: |
         cd src/portfolio
-        npm ci --prefer-offline --no-audit
+        npm cache clean --force
+        rm -rf node_modules package-lock.json
+        npm install
 
     - name: Build Angular application
       run: |
