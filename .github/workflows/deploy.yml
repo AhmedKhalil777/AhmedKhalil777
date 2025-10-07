@@ -33,10 +33,6 @@ jobs:
         cd src/portfolio
         npm run build -- --configuration=production --base-href="/AhmedKhalil777/"
 
-    - name: Copy CNAME file
-      run: |
-        cp src/portfolio/CNAME src/portfolio/dist/portfolio/CNAME
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'

@@ -83,26 +83,8 @@ deploy-gh-pages.bat
 
 After deployment, your portfolio will be available at:
 - **GitHub Pages URL**: `https://ahmedkhalil777.github.io/AhmedKhalil777/`
-- **Custom Domain** (if configured): `https://ahmedkhalil.dev`
 
 ## 🛠️ Configuration Options
-
-### Custom Domain Setup
-
-1. Add a `CNAME` file to your repository root:
-   ```
-   ahmedkhalil.dev
-   ```
-
-2. Update the workflow file to include the CNAME:
-   ```yaml
-   - name: Deploy to GitHub Pages
-     uses: peaceiris/actions-gh-pages@v3
-     with:
-       github_token: ${{ secrets.GITHUB_TOKEN }}
-       publish_dir: ./src/portfolio/dist/portfolio
-       cname: ahmedkhalil.dev
-   ```
 
 ### Environment Variables
 
