@@ -13,7 +13,7 @@ if [ $? -eq 0 ]; then
     
     # Deploy to GitHub Pages using gh-pages
     echo "🌐 Deploying to GitHub Pages..."
-    npx gh-pages -d dist/portfolio
+    npx gh-pages@3.2.3 -d dist/portfolio
     
     if [ $? -eq 0 ]; then
         echo "🎉 Deployment completed successfully!"

@@ -8,7 +8,7 @@ if %errorlevel% equ 0 (
     echo ✅ Build completed successfully!
     
     echo 🌐 Deploying to GitHub Pages...
-    npx gh-pages -d dist/portfolio
+    npx gh-pages@3.2.3 -d dist/portfolio
     
     if %errorlevel% equ 0 (
         echo 🎉 Deployment completed successfully!
