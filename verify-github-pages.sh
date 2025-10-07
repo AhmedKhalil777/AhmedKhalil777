@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Verify GitHub Pages Settings
+echo "🔍 Verifying GitHub Pages configuration..."
+
+echo "📋 Please check these settings in your GitHub repository:"
+echo ""
+echo "1. Go to your repository → Settings → Pages"
+echo "2. Verify 'Source' is set to 'Deploy from a branch'"
+echo "3. Verify 'Branch' is set to 'gh-pages' and '/ (root)'"
+echo ""
+echo "4. Go to Settings → Actions → General"
+echo "5. Verify 'Actions permissions' is set to 'Allow all actions'"
+echo "6. Verify 'Workflow permissions' is set to 'Read and write permissions'"
+echo ""
+echo "✅ After confirming these settings, push your changes:"
+echo "   git add ."
+echo "   git commit -m 'Fix GitHub Pages deployment'"
+echo "   git push origin main"
+echo ""
+echo "🔗 Your portfolio will be available at:"
+echo "   https://ahmedkhalil777.github.io/AhmedKhalil777/"
+echo ""
+echo "📊 Monitor the deployment in your repository's Actions tab"
+echo "🌿 Check that the 'gh-pages' branch is created after deployment"
