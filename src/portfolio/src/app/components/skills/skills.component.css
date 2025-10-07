@@ -112,26 +112,74 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1.5rem;
   background: rgba(102, 126, 234, 0.05);
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  border-radius: 15px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.skill-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.skill-item:hover::before {
+  left: 100%;
 }
 
 .skill-item:hover {
   background: rgba(102, 126, 234, 0.1);
-  transform: translateX(5px);
+  transform: translateX(8px) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.skill-item:hover .skill-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.skill-item:hover .skill-level {
+  animation: skillLevelBounce 0.6s ease-in-out;
 }
 
 .skill-icon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-item:hover .skill-icon::before {
+  opacity: 1;
 }
 
 .skill-icon i {
@@ -140,9 +188,16 @@
 }
 
 .skill-img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-item:hover .skill-img {
+  transform: scale(1.1);
 }
 
 .skill-info {
@@ -156,26 +211,69 @@
   color: #333;
 }
 
-.skill-bar {
-  width: 100%;
-  height: 6px;
-  background: rgba(102, 126, 234, 0.1);
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 0.25rem;
-}
-
-.skill-progress {
-  height: 100%;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 3px;
-  transition: width 1s ease;
-}
-
-.skill-percentage {
+.skill-level {
   font-size: 0.9rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: skillLevelPulse 2s ease-in-out infinite;
+}
+
+.skill-level.level-expert {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.skill-level.level-advanced {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.skill-level.level-intermediate {
+  background: linear-gradient(135deg, #ffc107, #fd7e14);
+  color: white;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+.skill-description {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.skill-icon-fa {
+  font-size: 1.2rem;
   color: #667eea;
+}
+
+/* Skill level pulse animation */
+@keyframes skillLevelPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Skill level bounce animation */
+@keyframes skillLevelBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
 }
 
 .skills-summary {
@@ -300,14 +398,14 @@
   color: #f0f0f0;
 }
 
-:host-context(.dark-theme) .skill-percentage {
+:host-context(.dark-theme) .skill-level {
+  color: #ffffff;
+}
+
+:host-context(.dark-theme) .skill-description {
+  color: #d0d0d0;
+}
+
+:host-context(.dark-theme) .skill-icon-fa {
   color: #ffd700;
-}
-
-:host-context(.dark-theme) .skill-bar {
-  background: rgba(255, 215, 0, 0.1);
-}
-
-:host-context(.dark-theme) .skill-progress {
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
 }

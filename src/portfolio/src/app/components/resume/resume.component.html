@@ -1,0 +1,142 @@
+<div class="resume-container" *ngIf="resumeData$ | async as resumeData">
+  <!-- Header Section -->
+  <div class="resume-header">
+    <div class="personal-info">
+      <h1 class="name">{{ resumeData.personalInfo.name }}</h1>
+      <div class="contact-info">
+        <div class="contact-left">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>{{ resumeData.personalInfo.email }}</span>
+          </div>
+        </div>
+        <div class="contact-right">
+          <div class="social-links">
+            <div class="social-item">
+              <i class="fab fa-github"></i>
+              <span>Github</span>
+            </div>
+            <div class="social-item">
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </div>
+            <div class="social-item">
+              <i class="fab fa-youtube"></i>
+              <span>Youtube</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>{{ resumeData.personalInfo.phone }}</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-home"></i>
+            <span>{{ resumeData.personalInfo.location }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="resume-section">
+    <h2 class="section-title">Summary</h2>
+    <div class="section-content">
+      <p class="summary-text">{{ resumeData.summary }}</p>
+    </div>
+  </div>
+
+  <!-- Work Experience Section -->
+  <div class="resume-section">
+    <h2 class="section-title">Work Experiences</h2>
+    <div class="section-content">
+      <div class="experience-item" *ngFor="let exp of resumeData.workExperience">
+        <div class="experience-header">
+          <div class="company-logo">
+            <div class="logo-placeholder"></div>
+          </div>
+          <div class="experience-details">
+            <h3 class="position">{{ exp.position }}</h3>
+            <div class="company-info">
+              <span class="company">{{ exp.company }}</span>
+              <span class="duration">{{ exp.duration }}</span>
+            </div>
+            <div class="job-type">{{ exp.type }}</div>
+          </div>
+        </div>
+        <ul class="achievements">
+          <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education Section -->
+  <div class="resume-section">
+    <h2 class="section-title">Education</h2>
+    <div class="section-content">
+      <div class="education-item">
+        <p class="education-text">
+          {{ resumeData.education.degree }} from {{ resumeData.education.university }}, 
+          {{ resumeData.education.achievement }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="resume-section">
+    <h2 class="section-title">Key Skills</h2>
+    <div class="section-content">
+      <div class="skills-grid">
+        <div class="skill-category">
+          <div class="skill-header">
+            <div class="skill-icon dotnet-icon"></div>
+            <h4>Dotnet</h4>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag" *ngFor="let skill of resumeData.skills.dotnet">{{ skill }}</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-header">
+            <div class="skill-icon angular-icon"></div>
+            <h4>Angular</h4>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag" *ngFor="let skill of resumeData.skills.angular">{{ skill }}</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-header">
+            <div class="skill-icon azure-icon"></div>
+            <h4>Azure</h4>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag" *ngFor="let skill of resumeData.skills.azure">{{ skill }}</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-header">
+            <div class="skill-icon other-icon"></div>
+            <h4>Other</h4>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag" *ngFor="let skill of resumeData.skills.other">{{ skill }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Print Button -->
+  <div class="print-actions">
+    <button class="print-btn" (click)="printResume()">
+      <i class="fas fa-print"></i>
+      Print Resume
+    </button>
+  </div>
+</div>

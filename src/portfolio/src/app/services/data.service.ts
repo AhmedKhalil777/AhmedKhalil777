@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { PortfolioData, PersonalInfo, HeroSection, AboutSection, HeaderSection, Skill, Project, Experience, ContactInfo } from '../models/portfolio-data.model';
+import { PortfolioData, PersonalInfo, HeroSection, AboutSection, HeaderSection, SkillsData, Project, Experience, ContactInfo, ResumeData } from '../models/portfolio-data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -57,9 +57,9 @@ export class DataService {
     );
   }
 
-  getSkills(): Observable<Skill[]> {
+  getSkills(): Observable<SkillsData | null> {
     return this.data$.pipe(
-      map(data => data?.skills || [])
+      map(data => data?.skills || null)
     );
   }
 
@@ -84,6 +84,12 @@ export class DataService {
   getContactInfo(): Observable<ContactInfo | null> {
     return this.data$.pipe(
       map(data => data?.contact || null)
+    );
+  }
+
+  getResumeData(): Observable<ResumeData | null> {
+    return this.data$.pipe(
+      map(data => data?.resume || null)
     );
   }
 

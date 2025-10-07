@@ -1,21 +1,21 @@
 {
   "personalInfo": {
     "name": "Ahmed Khalil",
-    "title": "Senior .NET Engineer",
-    "subtitle": "Full-Stack Developer",
-    "description": "Passionate about building scalable applications with .NET, Angular, and Azure. I specialize in microservices architecture, cloud solutions, and modern web technologies.",
+    "title": "Senior Software Engineer",
+    "subtitle": "Microservices & Full-Stack Developer",
+    "description": "Seasoned Senior Developer with 7 years of expertise in Microservices, proficient in both backend and frontend development within the Azure + .Net + Angular ecosystem. Dedicated to continuous learning, innovation, and passionate about knowledge sharing and collaboration.",
     "image": "assets/images/AhmedKhalil.png",
-    "location": "Egypt",
-    "email": "ahmed.khalil@example.com",
-    "phone": "+20 123 456 7890",
+    "location": "Nasr City, Cairo, Egypt",
+    "email": "Progeng_ahmed_Khalil@outlook.com",
+    "phone": "+201098943543",
     "website": "https://ahmedkhalil.dev",
     "linkedin": "https://linkedin.com/in/ahmedkhalil",
     "github": "https://github.com/ahmedkhalil"
   },
   "hero": {
     "title": "Hi, I'm Ahmed Khalil",
-    "subtitle": "Senior .NET Engineer & Full-Stack Developer",
-    "description": "Passionate about building scalable applications with .NET, Angular, and Azure. I specialize in microservices architecture, cloud solutions, and modern web technologies.",
+    "subtitle": "Senior Software Engineer & Microservices Expert",
+    "description": "Seasoned Senior Developer with 7 years of expertise in Microservices, proficient in both backend and frontend development within the Azure + .Net + Angular ecosystem. Dedicated to continuous learning, innovation, and passionate about knowledge sharing and collaboration.",
     "buttons": [
       {
         "text": "View My Work",
@@ -76,29 +76,29 @@
     "title": "About Me",
     "subtitle": "The story behind the code",
     "greeting": "Hello! I'm Ahmed Khalil",
-    "introText": "A passionate Senior .NET Engineer with over 7 years of experience crafting scalable, high-performance applications that make a difference.",
+    "introText": "A seasoned Senior Software Engineer with 7 years of expertise in Microservices, proficient in both backend and frontend development within the Azure + .Net + Angular ecosystem.",
     "storyHighlights": [
       {
         "icon": "fas fa-graduation-cap",
         "title": "Academic Excellence",
-        "description": "B.Sc. Computer Science - Mansoura University (2020)",
-        "achievement": "Graduated with Honors"
+        "description": "Bachelor's Degree in Computer Information Systems - Mansoura University (2020)",
+        "achievement": "Awarded with distinction and honors. Ranked 3rd in my class"
       },
       {
         "icon": "fas fa-rocket",
         "title": "Current Mission",
-        "description": "Senior .NET Engineer at Integrant Inc.",
-        "achievement": "Leading Digital Transformation"
+        "description": "Senior Software Engineer at Integrant Inc.",
+        "achievement": "Full time | USA Customers | Hybrid (W Office 1d, Home 2d)"
       },
       {
         "icon": "fas fa-globe",
         "title": "Global Impact",
-        "description": "Based in Egypt, Serving Worldwide",
+        "description": "Nasr City, Cairo, Egypt | Able to reside anywhere",
         "achievement": "Remote Work Specialist"
       }
     ],
     "passionTitle": "What Drives Me",
-    "passionText": "I'm passionate about building solutions that solve real-world problems. When I'm not architecting microservices or optimizing cloud infrastructure, you'll find me exploring the latest in AI/ML, contributing to open-source projects, or mentoring the next generation of developers.",
+    "passionText": "Dedicated to continuous learning, innovation, and passionate about knowledge sharing and collaboration. I'm passionate about building solutions that solve real-world problems through microservices architecture, cloud solutions, and modern web technologies.",
     "image": "assets/images/AhmedKhalil.png",
     "imageAlt": "Ahmed Khalil",
     "overlayTitle": "Let's Build Something Amazing!",
@@ -151,7 +151,7 @@
   },
   "header": {
     "brandName": "Ahmed Khalil",
-    "brandSubtitle": "Senior .NET Engineer",
+    "brandSubtitle": "Senior Software Engineer",
     "navigation": [
       {
         "text": "Home",
@@ -174,61 +174,193 @@
         "link": "#experience"
       },
       {
+        "text": "Resume",
+        "link": "/resume"
+      },
+      {
         "text": "Contact",
         "link": "#contact"
       }
     ]
   },
-  "skills": [
-    {
-      "name": ".NET Core",
-      "level": 95,
-      "icon": "fab fa-microsoft",
-      "category": "Backend"
-    },
-    {
-      "name": "Angular",
-      "level": 90,
-      "icon": "fab fa-angular",
-      "category": "Frontend"
-    },
-    {
-      "name": "Azure",
-      "level": 85,
-      "icon": "fas fa-cloud",
-      "category": "Cloud"
-    },
-    {
-      "name": "C#",
-      "level": 95,
-      "icon": "fas fa-code",
-      "category": "Programming"
-    },
-    {
-      "name": "TypeScript",
-      "level": 90,
-      "icon": "fab fa-js-square",
-      "category": "Programming"
-    },
-    {
-      "name": "SQL Server",
-      "level": 85,
-      "icon": "fas fa-database",
-      "category": "Database"
-    },
-    {
-      "name": "Docker",
-      "level": 80,
-      "icon": "fab fa-docker",
-      "category": "DevOps"
-    },
-    {
-      "name": "Microservices",
-      "level": 85,
-      "icon": "fas fa-cubes",
-      "category": "Architecture"
-    }
-  ],
+  "skills": {
+    "categories": [
+      {
+        "name": "Programming Languages",
+        "icon": "fas fa-code",
+        "skills": [
+          {
+            "name": "C#",
+            "level": "Expert",
+            "image": "assets/images/csharp-logo.png",
+            "description": "Advanced proficiency in C# development"
+          },
+          {
+            "name": "TypeScript",
+            "level": "Expert",
+            "image": "assets/images/Ts.png",
+            "description": "Expert-level TypeScript development"
+          },
+          {
+            "name": "JavaScript",
+            "level": "Advanced",
+            "image": "assets/images/js.png",
+            "description": "Advanced JavaScript programming"
+          },
+          {
+            "name": "Python",
+            "level": "Intermediate",
+            "image": "assets/images/python.png",
+            "description": "Intermediate Python development"
+          }
+        ]
+      },
+      {
+        "name": "Frontend Technologies",
+        "icon": "fas fa-paint-brush",
+        "skills": [
+          {
+            "name": "Angular",
+            "level": "Expert",
+            "image": "assets/images/angular.png",
+            "description": "Expert-level Angular development"
+          },
+          {
+            "name": "Blazor",
+            "level": "Advanced",
+            "image": "assets/images/blazor.png",
+            "description": "Advanced Blazor development"
+          },
+          {
+            "name": "HTML5",
+            "level": "Expert",
+            "image": "assets/images/html.png",
+            "description": "Expert HTML5 development"
+          },
+          {
+            "name": "CSS3/SCSS",
+            "level": "Expert",
+            "image": "assets/images/css.png",
+            "description": "Expert CSS3 and SCSS styling"
+          }
+        ]
+      },
+      {
+        "name": "Backend Technologies",
+        "icon": "fas fa-server",
+        "skills": [
+          {
+            "name": ".NET Core",
+            "level": "Expert",
+            "image": "assets/images/dotnet.png",
+            "description": "Expert .NET Core development"
+          },
+          {
+            "name": "REST APIs",
+            "level": "Expert",
+            "image": "assets/images/api.png",
+            "description": "Expert REST API development"
+          },
+          {
+            "name": "gRPC",
+            "level": "Advanced",
+            "image": "assets/images/gRPC.png",
+            "description": "Advanced gRPC implementation"
+          },
+          {
+            "name": "GraphQL",
+            "level": "Intermediate",
+            "image": "assets/images/graphQL.png",
+            "description": "Intermediate GraphQL development"
+          }
+        ]
+      },
+      {
+        "name": "Cloud & DevOps",
+        "icon": "fas fa-cloud",
+        "skills": [
+          {
+            "name": "Microsoft Azure",
+            "level": "Advanced",
+            "image": "assets/images/Azure.png",
+            "description": "Advanced Azure cloud solutions"
+          },
+          {
+            "name": "Docker",
+            "level": "Advanced",
+            "image": "assets/images/docker.webp",
+            "description": "Advanced Docker containerization"
+          },
+          {
+            "name": "Microservices",
+            "level": "Expert",
+            "image": "assets/images/microservices.png",
+            "description": "Expert microservices architecture"
+          },
+          {
+            "name": "API Documentation",
+            "level": "Advanced",
+            "image": "assets/images/swagger.png",
+            "description": "Advanced API documentation"
+          }
+        ]
+      },
+      {
+        "name": "Databases",
+        "icon": "fas fa-database",
+        "skills": [
+          {
+            "name": "MongoDB",
+            "level": "Advanced",
+            "image": "assets/images/mongo.png",
+            "description": "Advanced MongoDB development"
+          },
+          {
+            "name": "SQL Server",
+            "level": "Expert",
+            "icon": "fas fa-database",
+            "description": "Expert SQL Server development"
+          },
+          {
+            "name": "PostgreSQL",
+            "level": "Intermediate",
+            "icon": "fas fa-database",
+            "description": "Intermediate PostgreSQL development"
+          }
+        ]
+      },
+      {
+        "name": "Tools & Frameworks",
+        "icon": "fas fa-tools",
+        "skills": [
+          {
+            "name": "RxJS",
+            "level": "Advanced",
+            "image": "assets/images/Rx.png",
+            "description": "Advanced reactive programming"
+          },
+          {
+            "name": "JWT Authentication",
+            "level": "Expert",
+            "image": "assets/images/jwt.png",
+            "description": "Expert JWT authentication"
+          },
+          {
+            "name": "OAuth 2.0",
+            "level": "Advanced",
+            "image": "assets/images/oauth-3-logo.png",
+            "description": "Advanced OAuth 2.0 implementation"
+          },
+          {
+            "name": "Firebase",
+            "level": "Intermediate",
+            "image": "assets/images/firebase.png",
+            "description": "Intermediate Firebase development"
+          }
+        ]
+      }
+    ]
+  },
   "projects": [
     {
       "id": "project-1",
@@ -263,38 +395,139 @@
   ],
   "experience": [
     {
-      "company": "Integrant Inc.",
-      "position": "Senior .NET Engineer",
-      "duration": "2022 - Present",
-      "description": "Leading development of enterprise-scale applications using .NET Core, Angular, and Azure. Mentoring junior developers and architecting microservices solutions.",
-      "technologies": [".NET Core", "Angular", "Azure", "Microservices", "Docker"],
+      "company": "Integrant/Peraton",
+      "position": "Senior Software Engineer",
+      "duration": "Sep 2024 - Present",
+      "type": "Full time | USA Customers | Hybrid (W Office 1d, Home 2d)",
+      "image": "assets/images/integrant.png",
+      "description": "Developing autonomous Azure systems and tax systems for California, ensuring compliance and efficiency. Collaborating with USA customers to deliver scalable cloud solutions.",
+      "technologies": [".NET Core", "Azure", "Microservices", "Docker", "ASP.NET Core", "Azure Functions", "Service Bus"],
+        "achievements": [
+          "🏆 World MVP Engineer 2024/2025 - Recognized as top-performing engineer of the whole account",
+          "Designed autonomous Azure systems for enhanced scalability and reliability",
+          "Collaborated on tax systems for California, ensuring compliance and efficiency",
+          "Developed comprehensive dashboards for system functionality monitoring",
+          "Implemented cloud-native solutions for USA market requirements"
+        ]
+    },
+    {
+      "company": "Iskraemeco",
+      "position": "R&D Senior Software Engineer",
+      "duration": "Jun 2021 - Sep 2024",
+      "type": "Full time | European Customers | Hybrid (W Office 2d, Home 2d)",
+      "image": "assets/images/ISKRAEMECO.png",
+      "description": "Architected and developed advanced electricity meter systems with clustering techniques and SCADA/DMS/OMS integration. Enhanced IOT communication protocols and created productivity tools for development teams.",
+      "technologies": [".NET Core", "IOT", "SCADA", "DMS", "OMS", "Clustering", "MQTT", "Azure", "Docker"],
       "achievements": [
-        "Led development of 5+ enterprise applications",
-        "Reduced system response time by 40%",
-        "Mentored 3 junior developers",
-        "Implemented CI/CD pipelines"
+        "Recogized as the most productive/innovative engineer",
+        "Architected a system for electricity meters with advanced clustering techniques",
+        "Designed integration interfaces for SCADA/DMS/OMS systems",
+        "Enhanced IOT communication protocols for improved efficiency",
+        "Created productivity tools to streamline development processes"
       ]
     },
     {
-      "company": "Tech Solutions Ltd.",
-      "position": ".NET Developer",
-      "duration": "2020 - 2022",
-      "description": "Developed web applications using .NET Framework, ASP.NET MVC, and SQL Server. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-      "technologies": [".NET Framework", "ASP.NET MVC", "SQL Server", "JavaScript", "Bootstrap"],
+      "company": "Bdaya Development",
+      "position": "Microservices Engineer",
+      "duration": "Apr 2018 - Aug 2021",
+      "type": "Full time | UAE Customers | Office",
+      "image": "assets/images/bdaya.png",
+      "description": "Developed comprehensive microservices solutions including e-commerce, education, and lab systems. Managed cloud infrastructure and created innovative Blockchain/MongoDB systems for UAE market.",
+      "technologies": [".NET Core", "Microservices", "Docker", "MongoDB", "Blockchain", "Azure", "E-commerce", "Angular"],
       "achievements": [
-        "Developed 10+ web applications",
-        "Improved code quality by 30%",
-        "Implemented automated testing",
-        "Reduced deployment time by 50%"
+        "Learning curve from zero to hero",
+        "Created dotnet templates for rapid development",
+        "Managed cloud infrastructure over Docker",
+        "Developed various websites including e-commerce, education, and lab systems",
+        "Designed Blockchain/MongoDB systems for innovative solutions"
       ]
     }
   ],
   "contact": {
-    "email": "progeng_ahmed_khalil@outlook.com",
-    "phone": "+20 1098943543",
-    "location": "Egypt",
+    "email": "Progeng_ahmed_Khalil@outlook.com",
+    "phone": "+201098943543",
+    "location": "Nasr City, Cairo, Egypt",
     "linkedin": "https://linkedin.com/in/ahmedkhalil",
     "github": "https://github.com/ahmedkhalil",
     "website": "https://ahmedkhalil.dev"
+  },
+  "resume": {
+    "personalInfo": {
+      "name": "Ahmed Khalil",
+      "email": "Progeng_ahmed_Khalil@outlook.com",
+      "phone": "+201098943543",
+      "location": "Nasr City, Cairo, Egypt | Able to reside anywhere",
+      "github": "https://github.com/ahmedkhalil",
+      "linkedin": "https://linkedin.com/in/ahmedkhalil",
+      "youtube": "https://youtube.com/@ahmedkhalil"
+    },
+    "summary": "Seasoned Senior Developer with 7 years of expertise in Microservices, proficient in both backend and frontend development within the Azure + .Net + Angular ecosystem. Dedicated to continuous learning, innovation, and passionate about knowledge sharing and collaboration.",
+    "workExperience": [
+      {
+        "company": "Integrant",
+        "position": "Senior Software Engineer",
+        "duration": "2024-9 - Present",
+        "type": "Full time | USA Customers | Hybrid (W Office 1d, Home 2d)",
+        "achievements": [
+          "Designed autonomous Azure systems for enhanced scalability and reliability",
+          "Collaborated on tax systems for California, ensuring compliance and efficiency",
+          "Developed comprehensive dashboards for system functionality monitoring"
+        ]
+      },
+      {
+        "company": "Iskraemeco",
+        "position": "R&D Senior Software Engineer",
+        "duration": "2021-6 - 2024-9",
+        "type": "Full time | European Customers | Hybrid (W Office 2d, Home 2d)",
+        "achievements": [
+          "Architected a system for electricity meters with advanced clustering techniques",
+          "Designed integration interfaces for SCADA/DMS/OMS systems",
+          "Enhanced IOT communication protocols for improved efficiency",
+          "Created productivity tools to streamline development processes"
+        ]
+      },
+      {
+        "company": "Soaya Development",
+        "position": "Microservices Engineer",
+        "duration": "2018-4 - 2021-8",
+        "type": "Full time | UAE Customers | Office",
+        "achievements": [
+          "Created dotnet templates for rapid development",
+          "Managed cloud infrastructure over Docker",
+          "Developed various websites including e-commerce, education, and lab systems",
+          "Designed Blockchain/MongoDB systems for innovative solutions"
+        ]
+      }
+    ],
+    "education": {
+      "degree": "Bachelor's Degree in Computer Information Systems",
+      "university": "Mansoura University",
+      "year": "2020",
+      "achievement": "Awarded with distinction and honors. Ranked 3rd in my class."
+    },
+    "skills": {
+      "dotnet": [
+        "ASPIRE", "MAUI", "Blazor", "AspNetCore (MVC, Rest, GraphQL, gRPCs)", 
+        "WPF", "UWP", "EfCore", "MQTTNet", "Kafka", "ReactiveX", "Azure", 
+        "Orleans", "DAPR", "Aspire", "YARP", "Akka.Net", "Docker dotnet", 
+        "Desktop", "IOS", "Android", "ServiceStack", "MassTransit", "Azure Functions"
+      ],
+      "angular": [
+        "Rxjs", "Material Design", "Redux", "Reactive forms", "Redis", 
+        "AGM", "PrimeNg", "OpenStreetMap"
+      ],
+      "azure": [
+        "App Services", "Functions", "Blob Storage", "SQL Database", "Cosmos DB", 
+        "Key Vault", "DevOps", "API Management", "Service Bus", "Event Grid", 
+        "Application Insights", "Monitor"
+      ],
+      "other": [
+        "Agentic AI", "MCP Servers", "AI flow Engineering", "AI App Integrations",
+        "SQL Server", "Oracle DB", "MySQL", "Postgresql", "MongoDB", "Influx Db", 
+        "Elastic search", "TDD", "DDD", "Agile Scrum", "Git", "Github", "Gitlab", 
+        "TFS", "Azure Devops", "Jira", "SOLID", "Design Patterns", 
+        "Software architectures in deep (Microservices, SOA, CORBA)"
+      ]
+    }
   }
 }

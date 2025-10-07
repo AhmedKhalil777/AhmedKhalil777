@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
+import { DataService } from '../../services/data.service';
+import { SkillsData } from '../../models/portfolio-data.model';
 
 @Component({
   selector: 'app-skills',
@@ -11,34 +14,23 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class SkillsComponent implements OnInit {
   isDarkMode = false;
+  skillsData$: Observable<SkillsData | null>;
 
-  constructor(private themeService: ThemeService) { }
+  constructor(
+    private themeService: ThemeService,
+    private dataService: DataService
+  ) {
+    this.skillsData$ = this.dataService.getSkills();
+  }
 
   ngOnInit() {
     this.themeService.isDarkMode$.subscribe(isDark => {
       this.isDarkMode = isDark;
     });
-    
-    // Animate skill bars on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const skillBars = entry.target.querySelectorAll('.skill-progress');
-          skillBars.forEach((bar: any) => {
-            const width = bar.style.width;
-            bar.style.width = '0%';
-            setTimeout(() => {
-              bar.style.width = width;
-            }, 200);
-          });
-        }
-      });
-    });
+  }
 
-    const skillCategories = document.querySelectorAll('.skill-category');
-    skillCategories.forEach(category => {
-      observer.observe(category);
-    });
+  getImagePath(imagePath: string): string {
+    return this.dataService.getImagePath(imagePath);
   }
 }
 

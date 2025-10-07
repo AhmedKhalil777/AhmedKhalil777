@@ -80,9 +80,20 @@ export interface HeaderSection {
 
 export interface Skill {
   name: string;
-  level: number;
+  level: string;
+  image?: string;
+  icon?: string;
+  description: string;
+}
+
+export interface SkillCategory {
+  name: string;
   icon: string;
-  category: string;
+  skills: Skill[];
+}
+
+export interface SkillsData {
+  categories: SkillCategory[];
 }
 
 export interface Project {
@@ -100,6 +111,8 @@ export interface Experience {
   company: string;
   position: string;
   duration: string;
+  type: string;
+  image: string;
   description: string;
   technologies: string[];
   achievements: string[];
@@ -114,13 +127,54 @@ export interface ContactInfo {
   website: string;
 }
 
+export interface ResumePersonalInfo {
+  name: string;
+  email: string;
+  phone: string;
+  location: string;
+  github: string;
+  linkedin: string;
+  youtube: string;
+}
+
+export interface WorkExperience {
+  company: string;
+  position: string;
+  duration: string;
+  type: string;
+  achievements: string[];
+}
+
+export interface Education {
+  degree: string;
+  university: string;
+  year: string;
+  achievement: string;
+}
+
+export interface ResumeSkills {
+  dotnet: string[];
+  angular: string[];
+  azure: string[];
+  other: string[];
+}
+
+export interface ResumeData {
+  personalInfo: ResumePersonalInfo;
+  summary: string;
+  workExperience: WorkExperience[];
+  education: Education;
+  skills: ResumeSkills;
+}
+
 export interface PortfolioData {
   personalInfo: PersonalInfo;
   hero: HeroSection;
   about: AboutSection;
   header: HeaderSection;
-  skills: Skill[];
+  skills: SkillsData;
   projects: Project[];
   experience: Experience[];
   contact: ContactInfo;
+  resume: ResumeData;
 }

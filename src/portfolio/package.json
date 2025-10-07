@@ -10,7 +10,8 @@
     "test": "ng test",
     "build:prod": "ng build --configuration production",
     "build:gh-pages": "ng build --configuration production --base-href /AhmedKhalil777/",
-    "deploy": "ng build --configuration production --base-href /AhmedKhalil777/ && npx angular-cli-ghpages --dir=dist/ahmed-khalil-portfolio"
+    "deploy": "ng build --configuration production --base-href /AhmedKhalil777/ && npx gh-pages -d dist/portfolio",
+    "deploy:preview": "ng build --configuration production --base-href /AhmedKhalil777/ && npx gh-pages -d dist/portfolio --dotfiles"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.7.0",
     "angular-cli-ghpages": "^1.0.0",
+    "gh-pages": "^6.1.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

@@ -5,118 +5,42 @@
       <p class="section-subtitle">My career journey and achievements</p>
     </div>
     
-    <div class="timeline auto-scroll-content">
-      <!-- Current Position -->
-      <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-        <div class="timeline-marker current">
-          <i class="fas fa-briefcase"></i>
+    <div class="timeline auto-scroll-content" *ngIf="experienceData$ | async as experienceData">
+      <div class="timeline-item" 
+           *ngFor="let experience of experienceData; let i = index" 
+           [attr.data-aos]="i % 2 === 0 ? 'fade-right' : 'fade-left'" 
+           [attr.data-aos-delay]="(i + 1) * 100">
+        <div class="timeline-marker" [class.current]="i === 0">
+          <i class="fas fa-briefcase" *ngIf="i === 0"></i>
+          <i class="fas fa-code" *ngIf="i === 1"></i>
+          <i class="fas fa-graduation-cap" *ngIf="i > 1"></i>
         </div>
         <div class="timeline-content">
           <div class="experience-card">
             <div class="experience-header">
-              <h3 class="job-title">Senior .NET Engineer</h3>
-              <span class="company">Integrant Inc.</span>
-              <span class="duration">2022 - Present</span>
+              <div class="company-logo">
+                <img [src]="getImagePath(experience.image)" 
+                     [alt]="experience.company + ' logo'" 
+                     class="company-image"
+                     *ngIf="experience.image">
+              </div>
+              <div class="experience-info">
+                <h3 class="job-title">{{ experience.position }}</h3>
+                <span class="company">{{ experience.company }}</span>
+                <span class="duration">{{ experience.duration }}</span>
+                <span class="work-type" *ngIf="experience.type">{{ experience.type }}</span>
+              </div>
             </div>
             <div class="experience-body">
-              <p class="job-description">
-                Leading development of enterprise-level applications using .NET Core, Angular, 
-                and Azure cloud services. Responsible for architecture decisions, code reviews, 
-                and mentoring junior developers.
-              </p>
-              <div class="achievements">
+              <p class="job-description">{{ experience.description }}</p>
+              <div class="achievements" *ngIf="experience.achievements && experience.achievements.length > 0">
                 <h4>Key Achievements:</h4>
                 <ul>
-                  <li>Led migration of legacy system to microservices architecture, improving performance by 40%</li>
-                  <li>Implemented CI/CD pipelines reducing deployment time by 60%</li>
-                  <li>Mentored 3 junior developers and conducted technical interviews</li>
-                  <li>Designed and implemented scalable API solutions serving 100K+ users</li>
+                  <li *ngFor="let achievement of experience.achievements">{{ achievement }}</li>
                 </ul>
               </div>
-              <div class="technologies">
-                <span class="tech-badge">.NET Core</span>
-                <span class="tech-badge">Angular</span>
-                <span class="tech-badge">Azure</span>
-                <span class="tech-badge">Microservices</span>
-                <span class="tech-badge">Docker</span>
-                <span class="tech-badge">Kubernetes</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Previous Position -->
-      <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-        <div class="timeline-marker">
-          <i class="fas fa-code"></i>
-        </div>
-        <div class="timeline-content">
-          <div class="experience-card">
-            <div class="experience-header">
-              <h3 class="job-title">.NET Developer</h3>
-              <span class="company">Tech Solutions Ltd.</span>
-              <span class="duration">2020 - 2022</span>
-            </div>
-            <div class="experience-body">
-              <p class="job-description">
-                Developed and maintained web applications using .NET Framework, ASP.NET MVC, 
-                and SQL Server. Collaborated with cross-functional teams to deliver high-quality software solutions.
-              </p>
-              <div class="achievements">
-                <h4>Key Achievements:</h4>
-                <ul>
-                  <li>Developed 15+ web applications with modern UI/UX</li>
-                  <li>Improved application performance by 30% through code optimization</li>
-                  <li>Implemented automated testing reducing bugs by 50%</li>
-                  <li>Collaborated with UI/UX designers to create responsive applications</li>
-                </ul>
-              </div>
-              <div class="technologies">
-                <span class="tech-badge">.NET Framework</span>
-                <span class="tech-badge">ASP.NET MVC</span>
-                <span class="tech-badge">SQL Server</span>
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">Bootstrap</span>
-                <span class="tech-badge">jQuery</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Internship -->
-      <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
-        <div class="timeline-marker">
-          <i class="fas fa-graduation-cap"></i>
-        </div>
-        <div class="timeline-content">
-          <div class="experience-card">
-            <div class="experience-header">
-              <h3 class="job-title">Software Development Intern</h3>
-              <span class="company">Digital Innovations</span>
-              <span class="duration">2019 - 2020</span>
-            </div>
-            <div class="experience-body">
-              <p class="job-description">
-                Gained hands-on experience in software development lifecycle, working on 
-                real-world projects and learning industry best practices.
-              </p>
-              <div class="achievements">
-                <h4>Key Achievements:</h4>
-                <ul>
-                  <li>Completed 5+ small to medium projects</li>
-                  <li>Learned version control with Git and GitHub</li>
-                  <li>Participated in code reviews and team meetings</li>
-                  <li>Developed understanding of agile development methodologies</li>
-                </ul>
-              </div>
-              <div class="technologies">
-                <span class="tech-badge">C#</span>
-                <span class="tech-badge">HTML/CSS</span>
-                <span class="tech-badge">JavaScript</span>
-                <span class="tech-badge">SQL</span>
-                <span class="tech-badge">Git</span>
+              <div class="technologies" *ngIf="experience.technologies && experience.technologies.length > 0">
+                <span class="tech-badge" *ngFor="let tech of experience.technologies">{{ tech }}</span>
               </div>
             </div>
           </div>

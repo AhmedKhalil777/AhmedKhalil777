@@ -34,6 +34,11 @@
       
       <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
         <div class="image-container">
+          <!-- Rotating rings around the image -->
+          <div class="rotating-ring ring-1"></div>
+          <div class="rotating-ring ring-2"></div>
+          <div class="rotating-ring ring-3"></div>
+          
           <div class="profile-image">
             <img *ngIf="heroData$ | async as heroData"
                  [src]="getImagePath(heroData.image)" 
@@ -50,6 +55,16 @@
                 </div>
               </div>
             </div>
+          </div>
+          
+          <!-- Floating particles around the image -->
+          <div class="floating-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
           </div>
         </div>
       </div>
