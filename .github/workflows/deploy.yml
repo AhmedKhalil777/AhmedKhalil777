@@ -41,14 +41,10 @@ jobs:
         rm -rf node_modules package-lock.json
         npm install
 
-    - name: Build Angular application
+    - name: Build Angular application with Scully
       run: |
         cd src/portfolio
-        npm run build -- --configuration=production --base-href="/AhmedKhalil777/"
-
-    - name: Copy 404.html for Angular routing
-      run: |
-        cp src/portfolio/404.html src/portfolio/dist/portfolio/404.html
+        npm run build:scully
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -56,7 +52,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: './src/portfolio/dist/portfolio'
+        path: './src/portfolio/dist/static'
 
     - name: Deploy to GitHub Pages
       id: deployment
