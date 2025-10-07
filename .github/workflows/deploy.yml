@@ -46,6 +46,10 @@ jobs:
         cd src/portfolio
         npm run build -- --configuration=production --base-href="/AhmedKhalil777/"
 
+    - name: Copy 404.html for Angular routing
+      run: |
+        cp src/portfolio/404.html src/portfolio/dist/portfolio/404.html
+
     - name: Setup Pages
       uses: actions/configure-pages@v4
 
