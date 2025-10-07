@@ -7,25 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script>
-        // GitHub Pages SPA redirect
-        // This script takes the current URL and redirects to the Angular app
-        // with the path as a query parameter, then Angular router handles it
-        var pathSegmentsToKeep = 1;
+        // Simple redirect to Angular app
+        // This script redirects to the main Angular app and lets Angular router handle the routing
+        (function() {
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect !== location.href) {
+                history.replaceState(null, null, redirect);
+            }
+        })();
         
-        var l = window.location;
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash
-        );
+        // Redirect to main app
+        window.location.replace('/AhmedKhalil777/');
     </script>
 </head>
 <body>
-    <div style="text-align: center; margin-top: 50px;">
+    <div style="text-align: center; margin-top: 50px; font-family: Arial, sans-serif;">
         <h2>Redirecting to Ahmed Khalil's Portfolio...</h2>
         <p>If you are not redirected automatically, <a href="/AhmedKhalil777/">click here</a>.</p>
+        <script>
+            // Fallback redirect after 1 second
+            setTimeout(function() {
+                window.location.href = '/AhmedKhalil777/';
+            }, 1000);
+        </script>
     </div>
 </body>
 </html>
