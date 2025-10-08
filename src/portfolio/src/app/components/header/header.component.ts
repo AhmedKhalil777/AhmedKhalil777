@@ -5,6 +5,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { ThemeService } from '../../services/theme.service';
 import { MovieService } from '../../services/story.service';
 import { DataService } from '../../services/data.service';
+import { ViewService, ViewType } from '../../services/view.service';
 import { HeaderSection } from '../../models/portfolio-data.model';
 
 @Component({
@@ -25,15 +26,16 @@ import { HeaderSection } from '../../models/portfolio-data.model';
 })
 export class HeaderComponent implements OnInit {
   isScrolled = false;
-  isMenuOpen = false;
   isDarkMode = false;
   isMovieMode = false;
+  currentView: ViewType = 'hero';
   headerData$: Observable<HeaderSection | null>;
 
   constructor(
     private themeService: ThemeService,
     private movieService: MovieService,
-    private dataService: DataService
+    private dataService: DataService,
+    private viewService: ViewService
   ) {
     this.headerData$ = this.dataService.getHeaderSection();
   }
@@ -53,28 +55,20 @@ export class HeaderComponent implements OnInit {
     this.movieService.isMovieMode$.subscribe(movieMode => {
       this.isMovieMode = movieMode;
     });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href')!);
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
+
+    // Subscribe to view changes
+    this.viewService.currentView$.subscribe(view => {
+      this.currentView = view;
     });
   }
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+  switchToView(view: ViewType) {
+    this.viewService.setView(view);
   }
 
-  closeMenu() {
-    this.isMenuOpen = false;
+  goToHome(event: Event) {
+    event.preventDefault();
+    this.viewService.switchToHero();
   }
 
   toggleTheme() {

@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
     
     # Deploy to GitHub Pages
     echo "🚀 Deploying to GitHub Pages..."
-    npx angular-cli-ghpages --dir=dist/ahmed-khalil-portfolio
+    npx angular-cli-ghpages --dir=dist/portfolio
     
     if [ $? -eq 0 ]; then
         echo "🎉 Deployment completed successfully!"
@@ -40,4 +40,5 @@ else
     echo "❌ Build failed. Please check the error messages above."
     exit 1
 fi
+
 

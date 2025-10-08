@@ -44,10 +44,10 @@ export class AppComponent implements OnInit {
       });
     }
     
-    // Start the movie experience automatically after page load
-    setTimeout(() => {
-      this.movieService.startMovie();
-    }, 1500); // Wait 1.5 seconds for page to fully load
+    // Movie mode disabled on page load - user can start it manually from the header
+    // setTimeout(() => {
+    //   this.movieService.startMovie();
+    // }, 1500);
   }
 }
 

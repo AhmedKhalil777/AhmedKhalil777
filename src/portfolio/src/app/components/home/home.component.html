@@ -1,8 +1,23 @@
 <div class="home-container">
-  <app-hero id="home"></app-hero>
-  <app-about id="about"></app-about>
-  <app-skills id="skills"></app-skills>
-  <app-projects id="projects"></app-projects>
-  <app-experience id="experience"></app-experience>
-  <app-contact id="contact"></app-contact>
+  <!-- Hero View Template -->
+  <ng-container *ngTemplateOutlet="currentView === 'hero' ? heroView : resumeView"></ng-container>
+
+  <!-- Hero View Content -->
+  <ng-template #heroView>
+    <div class="hero-view" [@fadeInOut]>
+      <app-hero id="home"></app-hero>
+      <app-about id="about"></app-about>
+      <app-skills id="skills"></app-skills>
+      <app-projects id="projects"></app-projects>
+      <app-experience id="experience"></app-experience>
+      <app-contact id="contact"></app-contact>
+    </div>
+  </ng-template>
+
+  <!-- Resume View Content -->
+  <ng-template #resumeView>
+    <div class="resume-view" [@fadeInOut]>
+      <app-resume></app-resume>
+    </div>
+  </ng-template>
 </div>

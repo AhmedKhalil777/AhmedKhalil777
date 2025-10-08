@@ -7,6 +7,232 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
+/* ========================================
+   CLOCK HAND ANIMATION SELECTOR
+   ======================================== */
+
+.clock-hand-selector {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-face-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+  border-radius: 50%;
+  animation: overlayFadeIn 0.5s ease-out;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.rotating-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  transform-origin: center center;
+  z-index: 101;
+  pointer-events: none;
+  transition: transform 0.05s linear;
+}
+
+.hand-pointer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 60px;
+  transform: translate(-50%, -100%);
+  transform-origin: bottom center;
+  background: linear-gradient(to top, 
+    #ffd700,
+    #ffed4e 50%,
+    #fff9c4
+  );
+  border-radius: 5px 5px 0 0;
+  box-shadow: 
+    0 0 25px rgba(255, 215, 0, 1),
+    0 0 50px rgba(255, 215, 0, 0.6),
+    inset 0 0 12px rgba(255, 255, 255, 0.6);
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
+}
+
+.hand-pointer::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid #ffd700;
+  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 1));
+}
+
+.hand-pointer::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle, #fff9c4, #ffd700);
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 0 25px rgba(255, 215, 0, 1),
+    0 0 50px rgba(255, 215, 0, 0.6),
+    inset 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.rotating-hand.spinning .hand-pointer {
+  animation: handGlow 0.5s ease-in-out infinite;
+}
+
+.selection-pulse {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.8), transparent);
+  transform: translate(-50%, -50%);
+  animation: selectionPulse 1.5s ease-out infinite;
+  z-index: 99;
+}
+
+/* Add special highlight for selected button */
+.clock-button.selected-by-hand {
+  transform: translate(-50%, -50%) scale(1.5) !important;
+  animation: selectedBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+  z-index: 1000;
+}
+
+/* Animations */
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes handGlow {
+  0%, 100% {
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
+    box-shadow: 
+      0 0 25px rgba(255, 215, 0, 1),
+      0 0 50px rgba(255, 215, 0, 0.6),
+      inset 0 0 12px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    filter: drop-shadow(0 8px 25px rgba(255, 215, 0, 1));
+    box-shadow: 
+      0 0 40px rgba(255, 215, 0, 1),
+      0 0 80px rgba(255, 215, 0, 0.8),
+      0 0 100px rgba(255, 255, 255, 0.4),
+      inset 0 0 20px rgba(255, 255, 255, 0.9);
+  }
+}
+
+@keyframes selectionPulse {
+  0% {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+  }
+  100% {
+    width: 120px;
+    height: 120px;
+    opacity: 0;
+  }
+}
+
+@keyframes selectedBounce {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.7);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rotating-hand {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .hand-pointer {
+    width: 8px;
+    height: 50px;
+  }
+  
+  .hand-pointer::before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #ffd700;
+  }
+  
+  .hand-pointer::after {
+    width: 20px;
+    height: 20px;
+    bottom: -15px;
+  }
+  
+  .selection-pulse {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .clock-face-overlay {
+    width: 130%;
+    height: 130%;
+  }
+}
+
+@media (max-width: 480px) {
+  .rotating-hand {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .hand-pointer {
+    width: 6px;
+    height: 40px;
+  }
+  
+  .hand-pointer::before {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid #ffd700;
+  }
+  
+  .hand-pointer::after {
+    width: 16px;
+    height: 16px;
+    bottom: -12px;
+  }
+}
+
 /* Movie mode full screen - auto-scrolling content like movie scenes */
 :host-context(.movie-mode) .hero {
   height: 100vh;
@@ -281,6 +507,49 @@
   transition: all 0.3s ease;
 }
 
+/* Clickable image state */
+.profile-image.clickable {
+  cursor: pointer;
+}
+
+.profile-image.clickable:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4), 
+    0 0 0 8px rgba(102, 126, 234, 0.6),
+    0 0 40px rgba(102, 126, 234, 0.4),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.9);
+  border-color: rgba(102, 126, 234, 0.8);
+  animation: none;
+}
+
+.profile-image.clickable:active {
+  transform: scale(0.98);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.3), 
+    0 0 0 4px rgba(102, 126, 234, 0.6),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.profile-image.clickable::after {
+  content: '🎲';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+.profile-image.clickable:hover::after {
+  opacity: 0.9;
+}
+
 /* Pulsing glow animation */
 @keyframes pulse-glow {
   0%, 100% {
@@ -305,6 +574,7 @@
   object-fit: cover;
   border-radius: 50%;
   filter: contrast(1.1) brightness(1.05) saturate(1.1);
+  pointer-events: none;
   transition: all 0.3s ease;
   animation: image-shimmer 3s ease-in-out infinite;
 }
@@ -355,6 +625,7 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .profile-image:hover .image-overlay {
@@ -836,4 +1107,1387 @@
     0 20px 40px rgba(0, 0, 0, 0.5), 
     0 0 0 4px rgba(255, 215, 0, 0.3),
     inset 0 0 0 2px rgba(255, 215, 0, 0.8);
+}
+
+/* ========================================
+   12 MAGNIFICENT BACKGROUND ANIMATIONS
+   ======================================== */
+
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 0.8;
+  transition: all 1s ease-in-out;
+  --mouse-x: 50;
+  --mouse-y: 50;
+}
+
+/* ========================================
+   INTERACTIVE ELEMENTS
+   ======================================== */
+
+.interactive-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Mouse Follower */
+.mouse-follower {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.1s ease-out;
+  filter: blur(30px);
+  mix-blend-mode: screen;
+}
+
+/* Click Ripples */
+.click-ripple {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: rippleExpand 2s ease-out forwards;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes rippleExpand {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    border-width: 3px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    border-width: 1px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0);
+  }
+}
+
+/* Animation-specific click effects */
+[data-animation="1"] .click-ripple { border-color: #667eea; box-shadow: 0 0 20px #667eea; }
+[data-animation="2"] .click-ripple { border-color: #00d2ff; box-shadow: 0 0 20px #00d2ff; }
+[data-animation="3"] .click-ripple { border-color: #ff9966; box-shadow: 0 0 20px #ff9966; }
+[data-animation="4"] .click-ripple { border-color: #00ff41; box-shadow: 0 0 20px #00ff41; }
+[data-animation="5"] .click-ripple { border-color: #ffd700; box-shadow: 0 0 20px #ffd700; animation: rippleStarburst 2s ease-out forwards; }
+[data-animation="6"] .click-ripple { border-color: #ff006e; box-shadow: 0 0 20px #ff006e; animation: ripplePlasma 2s ease-out forwards; }
+[data-animation="7"] .click-ripple { border-color: #00b4d8; box-shadow: 0 0 20px #00b4d8; }
+[data-animation="8"] .click-ripple { border-color: #ff4500; box-shadow: 0 0 20px #ff4500; animation: rippleFire 2s ease-out forwards; }
+[data-animation="9"] .click-ripple { border-color: #ff00ff; box-shadow: 0 0 20px #ff00ff; }
+[data-animation="10"] .click-ripple { 
+  border-color: #00e5ff; 
+  box-shadow: 0 0 20px #00e5ff, 0 0 40px rgba(0, 229, 255, 0.5); 
+  animation: rippleNeural 2s ease-out forwards;
+}
+[data-animation="11"] .click-ripple { border-color: #b794f6; box-shadow: 0 0 30px #b794f6, 0 0 60px #f093fb; }
+[data-animation="12"] .click-ripple { border-color: #ffff00; box-shadow: 0 0 20px #ffff00; animation: rippleElectric 2s ease-out forwards; }
+
+@keyframes rippleStarburst {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes ripplePlasma {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    filter: hue-rotate(0deg) blur(0px);
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    filter: hue-rotate(360deg) blur(5px);
+  }
+}
+
+@keyframes rippleFire {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    border-color: #ff4500;
+    box-shadow: 0 0 20px #ff4500;
+  }
+  50% {
+    border-color: #ffa500;
+    box-shadow: 0 0 40px #ffa500;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    border-color: #ff6347;
+    box-shadow: 0 0 60px #ff6347;
+  }
+}
+
+@keyframes rippleNeural {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    box-shadow: 0 0 20px #00e5ff, 0 0 40px rgba(0, 229, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0 0 30px #00e5ff, 0 0 60px rgba(0, 229, 255, 0.7), inset 0 0 20px rgba(0, 229, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px #00e5ff, 0 0 80px rgba(0, 229, 255, 0.8), inset 0 0 30px rgba(0, 229, 255, 0.5);
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    box-shadow: 0 0 60px #00e5ff, 0 0 120px rgba(0, 229, 255, 0.3);
+  }
+}
+
+@keyframes rippleElectric {
+  0%, 100% {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    border-width: 3px;
+  }
+  25%, 75% {
+    border-width: 5px;
+    box-shadow: 0 0 40px #ffff00;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    border-width: 1px;
+  }
+}
+
+/* Floating Interactive Orbs */
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.3s ease-out;
+  filter: blur(50px);
+  opacity: 0.4;
+  animation: orbFloat 10s ease-in-out infinite;
+}
+
+.floating-orb.orb-1 {
+  top: 20%;
+  left: 20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.6), transparent);
+  animation-delay: 0s;
+}
+
+.floating-orb.orb-2 {
+  top: 60%;
+  right: 20%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.6), transparent);
+  animation-delay: 3s;
+}
+
+.floating-orb.orb-3 {
+  bottom: 20%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(78, 205, 196, 0.6), transparent);
+  animation-delay: 6s;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.9);
+  }
+}
+
+/* Animation 1: Gradient Wave - Interactive */
+.bg-animation-1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 400% 400%;
+  animation: gradientWave 15s ease-in-out infinite;
+  background-position: var(--mouse-x) var(--mouse-y);
+  transition: background-position 0.3s ease-out;
+}
+
+@keyframes gradientWave {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(30deg) brightness(1.2); }
+}
+
+/* Animation 2: Aurora Borealis - Interactive */
+.bg-animation-2 {
+  background: 
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(0, 210, 255, 0.6), transparent 60%),
+    radial-gradient(circle at calc(100% - var(--mouse-x)) var(--mouse-y), rgba(58, 123, 213, 0.6), transparent 60%),
+    linear-gradient(45deg, #00d2ff, #3a7bd5, #00d2ff, #3a7bd5);
+  background-size: 200%, 200%, 400% 400%;
+  animation: aurora 20s ease-in-out infinite;
+  transition: background-position 0.5s ease-out;
+}
+
+@keyframes aurora {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(60deg); }
+}
+
+/* Animation 3: Sunset Glow - Interactive */
+.bg-animation-3 {
+  background: 
+    radial-gradient(ellipse at var(--mouse-x) 30%, rgba(255, 153, 102, 0.8), transparent 50%),
+    radial-gradient(ellipse at calc(var(--mouse-x) * 0.8%) 50%, rgba(255, 94, 98, 0.6), transparent 60%),
+    linear-gradient(to bottom, #ff9966, #ff5e62, #ff9966);
+  animation: sunsetGlow 12s ease-in-out infinite;
+  transition: background-position 0.4s ease-out;
+}
+
+@keyframes sunsetGlow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3) saturate(1.2); }
+}
+
+/* Animation 4: Matrix Rain */
+.bg-animation-4 {
+  background: linear-gradient(180deg, #001a00, #003300, #001a00);
+  animation: matrixRain 8s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-animation-4::after {
+  content: '01010101 10101010 11001100 00110011';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  color: #00ff41;
+  font-family: monospace;
+  font-size: 12px;
+  opacity: 0.3;
+  animation: matrixFall 8s linear infinite;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+@keyframes matrixFall {
+  to { top: 100%; }
+}
+
+/* Animation 5: Starfield - Interactive */
+.bg-animation-5 {
+  background: 
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.2), transparent 30%),
+    radial-gradient(circle, #000428, #004e92);
+  position: relative;
+  transition: background-position 0.3s ease-out;
+}
+
+.bg-animation-5::before,
+.bg-animation-5::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(3px 3px at calc(var(--mouse-x) * 0.5%) calc(var(--mouse-y) * 0.5%), white, transparent),
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(2px 2px at calc(100% - var(--mouse-x) * 0.3%) calc(100% - var(--mouse-y) * 0.3%), white, transparent);
+  background-size: 200% 200%;
+  animation: starsMove 50s linear infinite;
+}
+
+@keyframes starsMove {
+  from { background-position: 0 0; }
+  to { background-position: -200% 200%; }
+}
+
+/* Animation 6: Plasma Burst - Interactive */
+.bg-animation-6 {
+  background: 
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), #ff006e, transparent 40%),
+    radial-gradient(circle at calc(100% - var(--mouse-x)) calc(100% - var(--mouse-y)), #8338ec, transparent 40%),
+    linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #ff006e);
+  background-size: 200%, 200%, 400% 400%;
+  animation: plasma 6s ease-in-out infinite;
+  filter: blur(2px);
+  transition: background-position 0.3s ease-out;
+}
+
+@keyframes plasma {
+  0%, 100% { filter: blur(2px) brightness(1); }
+  25% { filter: blur(3px) brightness(1.2); }
+  50% { filter: blur(2px) brightness(1); }
+  75% { filter: blur(3px) brightness(1.2); }
+}
+
+/* Animation 7: Ocean Depth - Interactive */
+.bg-animation-7 {
+  background: 
+    radial-gradient(ellipse at var(--mouse-x) var(--mouse-y), rgba(0, 180, 216, 0.8), transparent 60%),
+    radial-gradient(ellipse at calc(var(--mouse-x) * 0.7%) calc(100% - var(--mouse-y) * 0.3%), rgba(0, 119, 182, 0.6), transparent 50%),
+    linear-gradient(to bottom, #00b4d8, #0077b6, #023e8a);
+  animation: oceanWave 10s ease-in-out infinite;
+  transition: background-position 0.4s ease-out;
+}
+
+@keyframes oceanWave {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(10deg); }
+}
+
+/* Animation 8: Fire Storm - Interactive */
+.bg-animation-8 {
+  background: 
+    radial-gradient(ellipse at var(--mouse-x) calc(100% - var(--mouse-y) * 0.5%), rgba(255, 165, 0, 0.9), transparent 40%),
+    radial-gradient(circle at calc(var(--mouse-x) * 0.8%) calc(100% - var(--mouse-y) * 0.3%), rgba(255, 69, 0, 0.8), transparent 35%),
+    linear-gradient(to top, #ff4500, #ff6347, #ffa500, #ff4500);
+  background-size: 100%, 100%, 200% 200%;
+  animation: fireStorm 5s ease-in-out infinite;
+  transition: background-position 0.3s ease-out;
+}
+
+@keyframes fireStorm {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+/* Animation 9: Neon Grid - Interactive */
+.bg-animation-9 {
+  background: 
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 0, 255, 0.5), transparent 40%),
+    linear-gradient(#ff00ff 1px, transparent 1px),
+    linear-gradient(90deg, #ff00ff 1px, transparent 1px),
+    radial-gradient(circle at calc(100% - var(--mouse-x)) calc(100% - var(--mouse-y)), rgba(0, 255, 255, 0.3), transparent 50%),
+    linear-gradient(#000033 40%, #001a66);
+  background-size: 100%, 50px 50px, 50px 50px, 100%, 100% 100%;
+  animation: gridMove 20s linear infinite;
+  transition: background-position 0.3s ease-out;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+  to { background-position: 0 0, 50px 50px, 50px 50px, 0 0, 0 0; }
+}
+
+/* Animation 10: Neural Network - Interactive AI */
+.bg-animation-10 {
+  background: 
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(0, 229, 255, 0.4), transparent 40%),
+    radial-gradient(circle at calc(var(--mouse-x) * 0.7%) calc(var(--mouse-y) * 0.6%), rgba(0, 229, 255, 0.2), transparent 30%),
+    radial-gradient(ellipse at 20% 30%, rgba(13, 71, 161, 0.6), transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(1, 87, 155, 0.6), transparent 50%),
+    linear-gradient(135deg, #0d47a1, #01579b, #006064);
+  animation: neuralPulse 8s ease-in-out infinite;
+  transition: background-position 0.3s ease-out;
+  position: relative;
+}
+
+.bg-animation-10::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 229, 255, 0.03) 2px, rgba(0, 229, 255, 0.03) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 229, 255, 0.03) 2px, rgba(0, 229, 255, 0.03) 4px);
+  opacity: 0.5;
+  animation: neuralGrid 20s linear infinite;
+}
+
+@keyframes neuralPulse {
+  0%, 100% { 
+    filter: brightness(1) contrast(1);
+  }
+  50% { 
+    filter: brightness(1.2) contrast(1.1);
+  }
+}
+
+@keyframes neuralGrid {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, 100px 100px;
+  }
+}
+
+/* Animation 11: Space Nebula - Interactive */
+.bg-animation-11 {
+  background: 
+    radial-gradient(circle at calc(var(--mouse-x) * 0.5%) calc(var(--mouse-y) * 0.5%), #b794f6, transparent 50%),
+    radial-gradient(circle at calc(100% - var(--mouse-x) * 0.3%) calc(var(--mouse-y) * 0.8%), #f093fb, transparent 50%),
+    radial-gradient(circle at calc(var(--mouse-x) * 0.4%) calc(100% - var(--mouse-y) * 0.2%), #4facfe, transparent 50%),
+    radial-gradient(circle at 20% 50%, #b794f6, transparent 50%),
+    radial-gradient(circle at 80% 80%, #f093fb, transparent 50%),
+    radial-gradient(circle at 40% 20%, #4facfe, transparent 50%),
+    linear-gradient(135deg, #1a1a2e, #16213e);
+  animation: nebula 15s ease-in-out infinite;
+  transition: background-position 0.5s ease-out;
+}
+
+@keyframes nebula {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+/* Animation 12: Electric Pulse - Interactive */
+.bg-animation-12 {
+  background: 
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 0, 0.7), transparent 30%),
+    radial-gradient(circle at calc(100% - var(--mouse-x)) calc(100% - var(--mouse-y)), rgba(0, 255, 255, 0.7), transparent 30%),
+    linear-gradient(45deg, #ffff00, #00ffff, #ff00ff, #ffff00);
+  background-size: 100%, 100%, 400% 400%;
+  animation: electricPulse 3s ease-in-out infinite;
+  transition: background-position 0.2s ease-out;
+}
+
+@keyframes electricPulse {
+  0%, 100% { 
+    filter: brightness(1) contrast(1);
+  }
+  50% { 
+    filter: brightness(1.5) contrast(1.2);
+  }
+}
+
+/* ========================================
+   CLOCK BUTTONS STYLING
+   ======================================== */
+
+.clock-buttons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.clock-button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    0 0 0 0 rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  pointer-events: auto;
+}
+
+.clock-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.clock-number {
+  position: absolute;
+  bottom: 2px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.3s ease;
+}
+
+.clock-button:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    0 0 0 4px rgba(255, 255, 255, 0.6);
+  border-color: white;
+}
+
+.clock-button:hover .clock-emoji {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.clock-button:hover .clock-number {
+  opacity: 1;
+}
+
+.clock-button:hover .button-glow {
+  opacity: 0.5;
+}
+
+.clock-button.active {
+  transform: translate(-50%, -50%) scale(1.3);
+  border: 4px solid white;
+  box-shadow: 
+    0 10px 35px rgba(0, 0, 0, 0.5),
+    0 0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 30px 10px currentColor;
+  animation: activePulse 2s ease-in-out infinite;
+}
+
+.clock-button.active .clock-emoji {
+  transform: scale(1.3);
+  animation: emojiSpin 3s linear infinite;
+}
+
+.clock-button.active .clock-number {
+  opacity: 1;
+  font-size: 0.8rem;
+}
+
+.clock-button.active .button-glow {
+  opacity: 0.7;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes activePulse {
+  0%, 100% {
+    box-shadow: 
+      0 10px 35px rgba(0, 0, 0, 0.5),
+      0 0 0 6px rgba(255, 255, 255, 0.8),
+      0 0 30px 10px currentColor;
+  }
+  50% {
+    box-shadow: 
+      0 15px 45px rgba(0, 0, 0, 0.6),
+      0 0 0 8px rgba(255, 255, 255, 1),
+      0 0 50px 20px currentColor;
+  }
+}
+
+@keyframes emojiSpin {
+  from { transform: scale(1.3) rotate(0deg); }
+  to { transform: scale(1.3) rotate(360deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Responsive Clock Buttons */
+@media (max-width: 768px) {
+  .clock-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .clock-emoji {
+    font-size: 1.2rem;
+  }
+  
+  .clock-number {
+    font-size: 0.6rem;
+  }
+  
+  /* Adjust interactive elements for mobile */
+  .mouse-follower {
+    width: 150px;
+    height: 150px;
+    filter: blur(20px);
+  }
+  
+  .floating-orb.orb-1,
+  .floating-orb.orb-2,
+  .floating-orb.orb-3 {
+    opacity: 0.3;
+  }
+  
+  .click-ripple {
+    animation: rippleExpandMobile 1.5s ease-out forwards;
+  }
+}
+
+@keyframes rippleExpandMobile {
+  0% {
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .clock-button {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .clock-emoji {
+    font-size: 1rem;
+  }
+  
+  .floating-orb.orb-1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .floating-orb.orb-2 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .floating-orb.orb-3 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ========================================
+   UNIQUE EFFECTS FOR EACH ANIMATION
+   ======================================== */
+
+/* Animation 1: Gradient Wave - Flowing particles */
+.wave-particle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #667eea, transparent);
+  transform: translate(-50%, -50%);
+  animation: waveFlow 2s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes waveFlow {
+  0% {
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(-100px);
+  }
+}
+
+/* Animation 2: Aurora Borealis - Light trails */
+.aurora-trail {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.4), transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: blur(20px);
+  transition: all 0.3s ease-out;
+}
+
+.aurora-burst {
+  position: absolute;
+  width: 30px;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(0, 210, 255, 0.8), transparent);
+  transform: translate(-50%, -50%);
+  animation: auroraBurst 1.5s ease-out forwards;
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+@keyframes auroraBurst {
+  0% {
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    height: 300px;
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+/* Animation 3: Sunset Glow - Sun rays */
+.sun-ray {
+  position: absolute;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, rgba(255, 153, 102, 0.9), rgba(255, 94, 98, 0.5), transparent);
+  transform: translate(-50%, -50%);
+  animation: sunRayExpand 1.5s ease-out forwards;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(255, 153, 102, 0.8);
+}
+
+.sun-ray:nth-child(even) {
+  animation-delay: 0.1s;
+}
+
+@keyframes sunRayExpand {
+  0% {
+    height: 0;
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    height: 200px;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Animation 4: Matrix Rain - Falling code */
+.matrix-code {
+  position: absolute;
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ff41;
+  transform: translate(-50%, -50%);
+  animation: matrixFallEffect 2s linear forwards;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@keyframes matrixFallEffect {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 400%);
+  }
+}
+
+/* Animation 5: Starfield - Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: shootingStar 1s ease-out forwards;
+  pointer-events: none;
+  box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+}
+
+.cursor-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: blur(20px);
+  transition: all 0.2s ease-out;
+}
+
+@keyframes shootingStar {
+  0% {
+    opacity: 1;
+    width: 3px;
+    height: 3px;
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    width: 100px;
+    height: 3px;
+    border-radius: 50% 0 0 50%;
+  }
+  100% {
+    opacity: 0;
+    width: 100px;
+    height: 3px;
+    transform: translate(200px, 200px);
+  }
+}
+
+/* Animation 6: Plasma Burst - Energy explosions */
+.plasma-explosion {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.plasma-ring {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #ff006e;
+  transform: translate(-50%, -50%);
+  animation: plasmaRingExpand 1.5s ease-out forwards;
+  box-shadow: 0 0 20px #ff006e, inset 0 0 20px #8338ec;
+}
+
+@keyframes plasmaRingExpand {
+  0% {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+    filter: hue-rotate(180deg);
+  }
+}
+
+/* Animation 7: Ocean Depth - Water bubbles */
+.water-bubble {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(0, 180, 216, 0.4));
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  animation: bubbleRise 2s ease-out forwards;
+  pointer-events: none;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.water-ripple {
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 180, 216, 0.5);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: waterRipple 2s ease-out infinite;
+}
+
+@keyframes bubbleRise {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -300%) scale(1.2);
+  }
+}
+
+@keyframes waterRipple {
+  0% {
+    width: 100px;
+    height: 30px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 200px;
+    height: 60px;
+    opacity: 0;
+  }
+}
+
+/* Animation 8: Fire Storm - Flame particles */
+.fire-particle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.flame {
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  background: linear-gradient(to top, #ff4500, #ffa500, transparent);
+  border-radius: 50% 50% 0 0;
+  transform: translate(-50%, 0);
+  animation: flameRise 1.5s ease-out forwards;
+  filter: blur(2px);
+}
+
+.flame-1 {
+  animation-delay: 0s;
+  left: -10px;
+}
+
+.flame-2 {
+  animation-delay: 0.2s;
+  left: 0;
+}
+
+.flame-3 {
+  animation-delay: 0.4s;
+  left: 10px;
+}
+
+@keyframes flameRise {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    filter: blur(2px) brightness(1);
+  }
+  50% {
+    filter: blur(3px) brightness(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -200px) scale(0.5);
+    filter: blur(5px) brightness(0.8);
+  }
+}
+
+/* Animation 9: Neon Grid - Electric sparks */
+.neon-spark {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.spark-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #ff00ff, transparent);
+  animation: sparkExpand 0.8s ease-out forwards;
+  box-shadow: 0 0 10px #ff00ff;
+}
+
+.spark-h {
+  width: 0;
+  height: 3px;
+  top: 0;
+  left: 0;
+}
+
+.spark-v {
+  width: 3px;
+  height: 0;
+  top: 0;
+  left: 0;
+  animation-delay: 0.2s;
+}
+
+@keyframes sparkExpand {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.spark-h {
+  animation: sparkExpandH 0.8s ease-out forwards;
+}
+
+.spark-v {
+  animation: sparkExpandV 0.8s ease-out forwards;
+}
+
+@keyframes sparkExpandH {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 200px;
+    opacity: 0;
+  }
+}
+
+@keyframes sparkExpandV {
+  0% {
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+/* Animation 10: Neural Network - AI nodes and connections */
+.neural-burst {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  width: 200px;
+  height: 200px;
+}
+
+/* Central AI node */
+.ai-node {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00e5ff, #0288d1);
+  box-shadow: 0 0 20px #00e5ff, inset 0 0 10px rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(0, 229, 255, 0.8);
+}
+
+.central-node {
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: nodeGlow 2s ease-in-out infinite;
+  z-index: 10;
+}
+
+/* Connected nodes in hexagon pattern */
+.connected-node {
+  width: 12px;
+  height: 12px;
+  animation: nodeExpand 2s ease-out forwards;
+}
+
+.node-1 { top: 0%; left: 50%; animation-delay: 0s; }
+.node-2 { top: 25%; left: 93%; animation-delay: 0.1s; }
+.node-3 { top: 75%; left: 93%; animation-delay: 0.2s; }
+.node-4 { top: 100%; left: 50%; animation-delay: 0.3s; }
+.node-5 { top: 75%; left: 7%; animation-delay: 0.4s; }
+.node-6 { top: 25%; left: 7%; animation-delay: 0.5s; }
+
+/* Connection lines between nodes */
+.connection-line {
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(to bottom, #00e5ff, transparent);
+  top: 50%;
+  left: 50%;
+  transform-origin: top center;
+  animation: lineGrow 2s ease-out forwards;
+  box-shadow: 0 0 5px #00e5ff;
+}
+
+.line-1 { transform: translate(-50%, -50%) rotate(90deg); animation-delay: 0s; }
+.line-2 { transform: translate(-50%, -50%) rotate(150deg); animation-delay: 0.1s; }
+.line-3 { transform: translate(-50%, -50%) rotate(210deg); animation-delay: 0.2s; }
+.line-4 { transform: translate(-50%, -50%) rotate(270deg); animation-delay: 0.3s; }
+.line-5 { transform: translate(-50%, -50%) rotate(330deg); animation-delay: 0.4s; }
+.line-6 { transform: translate(-50%, -50%) rotate(30deg); animation-delay: 0.5s; }
+
+/* Data pulses */
+.data-pulse {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00e5ff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px #00e5ff;
+  animation: dataPulse 2s ease-out forwards;
+}
+
+.pulse-1 { animation-delay: 0.5s; }
+.pulse-2 { animation-delay: 0.8s; }
+.pulse-3 { animation-delay: 1.1s; }
+
+/* Neural cursor with brain wave */
+.neural-cursor {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+}
+
+.brain-wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 229, 255, 0.4);
+  animation: brainWave 2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+}
+
+.brain-wave::before,
+.brain-wave::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid rgba(0, 229, 255, 0.3);
+}
+
+.brain-wave::before {
+  width: 80%;
+  height: 80%;
+  animation: brainWave 2s ease-in-out infinite 0.3s;
+}
+
+.brain-wave::after {
+  width: 60%;
+  height: 60%;
+  animation: brainWave 2s ease-in-out infinite 0.6s;
+}
+
+/* Animations */
+@keyframes nodeGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px #00e5ff, inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px #00e5ff, 0 0 60px rgba(0, 229, 255, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.8);
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes nodeExpand {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+@keyframes lineGrow {
+  0% {
+    height: 0;
+    opacity: 1;
+  }
+  50% {
+    height: 70px;
+    opacity: 1;
+  }
+  100% {
+    height: 70px;
+    opacity: 0;
+  }
+}
+
+@keyframes dataPulse {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(100px, -100px) scale(0.3);
+  }
+}
+
+@keyframes brainWave {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Animation 11: Space Nebula - Cosmic clouds */
+.nebula-cloud {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(183, 148, 246, 0.6), rgba(240, 147, 251, 0.4), transparent);
+  transform: translate(-50%, -50%);
+  animation: nebulaExpand 3s ease-out forwards;
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.cosmic-dust {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.3), transparent);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: blur(30px);
+  transition: all 0.5s ease-out;
+  animation: cosmicPulse 3s ease-in-out infinite;
+}
+
+@keyframes nebulaExpand {
+  0% {
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+    filter: blur(20px) hue-rotate(0deg);
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    filter: blur(50px) hue-rotate(180deg);
+  }
+}
+
+@keyframes cosmicPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+/* Animation 12: Electric Pulse - Lightning bolts */
+.lightning-bolt {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.bolt {
+  position: absolute;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, #ffff00, #00ffff, transparent);
+  transform: translate(-50%, -50%);
+  animation: boltStrike 0.6s ease-out forwards;
+  box-shadow: 0 0 10px #ffff00, 0 0 20px #00ffff;
+  filter: blur(1px);
+}
+
+.bolt-1 {
+  animation-delay: 0s;
+  left: -15px;
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+
+.bolt-2 {
+  animation-delay: 0.1s;
+  left: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.bolt-3 {
+  animation-delay: 0.2s;
+  left: 15px;
+  transform: translate(-50%, -50%) rotate(15deg);
+}
+
+@keyframes boltStrike {
+  0% {
+    height: 0;
+    opacity: 1;
+  }
+  30% {
+    height: 150px;
+    opacity: 1;
+  }
+  100% {
+    height: 150px;
+    opacity: 0;
+  }
+}
+
+/* Print Styles - Hide interactive elements */
+@media print {
+  .clock-buttons {
+    display: none !important;
+  }
+  
+  .interactive-layer {
+    display: none !important;
+  }
+  
+  .mouse-follower,
+  .click-ripple,
+  .floating-orb {
+    display: none !important;
+  }
+  
+  [class*="effect-"] {
+    display: none !important;
+  }
 }

@@ -44,7 +44,7 @@ jobs:
     - name: Build Angular application with Scully
       run: |
         cd src/portfolio
-        npm run build:scully --project ahmed-khalil-portfolio
+        npm run build:scully --project portfolio
 
     - name: Setup Pages
       uses: actions/configure-pages@v4

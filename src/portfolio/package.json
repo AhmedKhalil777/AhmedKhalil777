@@ -1,5 +1,5 @@
 {
-  "name": "ahmed-khalil-portfolio",
+  "name": "portfolio",
   "version": "1.0.0",
   "description": "Ahmed Khalil - Senior .NET Engineer Portfolio",
   "scripts": {
@@ -10,8 +10,8 @@
     "test": "ng test",
     "build:prod": "ng build --configuration production",
     "build:gh-pages": "ng build --configuration production --base-href /AhmedKhalil777/",
-    "deploy": "npm run build:gh-pages && npx gh-pages@3.2.3 -d dist/ahmed-khalil-portfolio",
-    "deploy:preview": "npm run build:gh-pages && npx gh-pages@3.2.3 -d dist/ahmed-khalil-portfolio --dotfiles"
+    "deploy": "npm run build:gh-pages && npx gh-pages@3.2.3 -d dist/portfolio",
+    "deploy:preview": "npm run build:gh-pages && npx gh-pages@3.2.3 -d dist/portfolio --dotfiles"
   },
   "private": true,
   "dependencies": {

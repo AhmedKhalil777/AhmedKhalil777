@@ -1,3 +1,10 @@
 .home-container {
   width: 100%;
 }
+
+/* View Containers */
+.hero-view,
+.resume-view {
+  width: 100%;
+  min-height: 100vh;
+}

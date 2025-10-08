@@ -24,9 +24,9 @@
         "type": "primary"
       },
       {
-        "text": "Get In Touch",
-        "icon": "fas fa-envelope",
-        "link": "#contact",
+        "text": "Download Resume",
+        "icon": "fas fa-file-download",
+        "link": "#resume",
         "type": "secondary"
       }
     ],
@@ -172,10 +172,6 @@
       {
         "text": "Experience",
         "link": "#experience"
-      },
-      {
-        "text": "Resume",
-        "link": "/resume"
       },
       {
         "text": "Contact",

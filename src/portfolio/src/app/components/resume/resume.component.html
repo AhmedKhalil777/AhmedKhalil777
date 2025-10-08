@@ -1,142 +1,235 @@
-<div class="resume-container" *ngIf="resumeData$ | async as resumeData">
-  <!-- Header Section -->
-  <div class="resume-header">
-    <div class="personal-info">
-      <h1 class="name">{{ resumeData.personalInfo.name }}</h1>
-      <div class="contact-info">
-        <div class="contact-left">
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
+<div class="resume-wrapper">
+  <!-- Animated Background -->
+  <div class="resume-background">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <div class="resume-container" *ngIf="resumeData$ | async as resumeData">
+    <!-- Magnificent Header Section -->
+    <div class="resume-header" data-aos="fade-down" data-aos-duration="1000">
+      <div class="header-decoration">
+        <div class="decoration-line"></div>
+      </div>
+      <div class="personal-info">
+        <h1 class="name" data-aos="zoom-in" data-aos-delay="200">
+          {{ resumeData.personalInfo.name }}
+        </h1>
+        <div class="title-badge" data-aos="fade-up" data-aos-delay="400">
+          <span class="badge-icon">💼</span>
+          <span class="badge-text">Senior Software Engineer</span>
+        </div>
+        <div class="contact-info">
+          <div class="contact-item" data-aos="fade-right" data-aos-delay="500">
+            <div class="contact-icon-wrapper">
+              <i class="fas fa-envelope"></i>
+            </div>
             <span>{{ resumeData.personalInfo.email }}</span>
           </div>
-        </div>
-        <div class="contact-right">
-          <div class="social-links">
-            <div class="social-item">
-              <i class="fab fa-github"></i>
-              <span>Github</span>
+          <div class="contact-item" data-aos="fade-right" data-aos-delay="600">
+            <div class="contact-icon-wrapper">
+              <i class="fas fa-phone"></i>
             </div>
-            <div class="social-item">
-              <i class="fab fa-linkedin"></i>
-              <span>LinkedIn</span>
-            </div>
-            <div class="social-item">
-              <i class="fab fa-youtube"></i>
-              <span>Youtube</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
             <span>{{ resumeData.personalInfo.phone }}</span>
           </div>
-          <div class="contact-item">
-            <i class="fas fa-home"></i>
+          <div class="contact-item" data-aos="fade-right" data-aos-delay="700">
+            <div class="contact-icon-wrapper">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
             <span>{{ resumeData.personalInfo.location }}</span>
           </div>
         </div>
+        <div class="social-links" data-aos="fade-up" data-aos-delay="800">
+          <a href="{{ resumeData.personalInfo.github }}" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+          <a href="{{ resumeData.personalInfo.linkedin }}" class="social-link" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="{{ resumeData.personalInfo.youtube }}" class="social-link" target="_blank">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Summary Section -->
-  <div class="resume-section">
-    <h2 class="section-title">Summary</h2>
-    <div class="section-content">
-      <p class="summary-text">{{ resumeData.summary }}</p>
+    <!-- Summary Section with Magnificent Animation -->
+    <div class="resume-section" data-aos="fade-up" data-aos-delay="900">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <h2 class="section-title">Professional Summary</h2>
+      </div>
+      <div class="section-content glass-card">
+        <p class="summary-text">{{ resumeData.summary }}</p>
+        <div class="summary-decoration"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Work Experience Section -->
-  <div class="resume-section">
-    <h2 class="section-title">Work Experiences</h2>
-    <div class="section-content">
-      <div class="experience-item" *ngFor="let exp of resumeData.workExperience">
-        <div class="experience-header">
-          <div class="company-logo">
-            <div class="logo-placeholder"></div>
-          </div>
-          <div class="experience-details">
-            <h3 class="position">{{ exp.position }}</h3>
-            <div class="company-info">
-              <span class="company">{{ exp.company }}</span>
-              <span class="duration">{{ exp.duration }}</span>
+    <!-- Work Experience Section with Staggered Animations -->
+    <div class="resume-section" data-aos="fade-up" data-aos-delay="100">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+      <div class="section-content">
+        <div class="experience-timeline">
+          <div class="experience-item" 
+               *ngFor="let exp of resumeData.workExperience; let i = index" 
+               data-aos="fade-up" 
+               [attr.data-aos-delay]="(i + 1) * 150">
+            <div class="timeline-dot"></div>
+            <div class="experience-card glass-card">
+              <div class="experience-header">
+                <div class="company-badge">
+                  <div class="badge-shimmer"></div>
+                  <span class="badge-emoji">🏢</span>
+                </div>
+                <div class="experience-details">
+                  <h3 class="position">{{ exp.position }}</h3>
+                  <div class="company-info">
+                    <span class="company">{{ exp.company }}</span>
+                    <span class="duration-badge">
+                      <i class="fas fa-calendar-alt"></i>
+                      {{ exp.duration }}
+                    </span>
+                  </div>
+                  <div class="job-type-badge">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ exp.type }}
+                  </div>
+                </div>
+              </div>
+              <ul class="achievements">
+                <li *ngFor="let achievement of exp.achievements; let j = index" 
+                    class="achievement-item"
+                    [style.animation-delay]="(i * 150 + j * 100) + 'ms'">
+                  <span class="achievement-icon">✨</span>
+                  <span>{{ achievement }}</span>
+                </li>
+              </ul>
             </div>
-            <div class="job-type">{{ exp.type }}</div>
-          </div>
-        </div>
-        <ul class="achievements">
-          <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Education Section -->
-  <div class="resume-section">
-    <h2 class="section-title">Education</h2>
-    <div class="section-content">
-      <div class="education-item">
-        <p class="education-text">
-          {{ resumeData.education.degree }} from {{ resumeData.education.university }}, 
-          {{ resumeData.education.achievement }}
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Skills Section -->
-  <div class="resume-section">
-    <h2 class="section-title">Key Skills</h2>
-    <div class="section-content">
-      <div class="skills-grid">
-        <div class="skill-category">
-          <div class="skill-header">
-            <div class="skill-icon dotnet-icon"></div>
-            <h4>Dotnet</h4>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" *ngFor="let skill of resumeData.skills.dotnet">{{ skill }}</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-header">
-            <div class="skill-icon angular-icon"></div>
-            <h4>Angular</h4>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" *ngFor="let skill of resumeData.skills.angular">{{ skill }}</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-header">
-            <div class="skill-icon azure-icon"></div>
-            <h4>Azure</h4>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" *ngFor="let skill of resumeData.skills.azure">{{ skill }}</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <div class="skill-header">
-            <div class="skill-icon other-icon"></div>
-            <h4>Other</h4>
-          </div>
-          <div class="skill-tags">
-            <span class="skill-tag" *ngFor="let skill of resumeData.skills.other">{{ skill }}</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Print Button -->
-  <div class="print-actions">
-    <button class="print-btn" (click)="printResume()">
-      <i class="fas fa-print"></i>
-      Print Resume
-    </button>
+    <!-- Education Section with Magnificent Card -->
+    <div class="resume-section" data-aos="fade-up" data-aos-delay="200">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="section-content">
+        <div class="education-card glass-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="education-badge">
+            <span class="badge-emoji">🎓</span>
+          </div>
+          <div class="education-content">
+            <h3 class="education-degree">{{ resumeData.education.degree }}</h3>
+            <p class="education-university">
+              <i class="fas fa-university"></i>
+              {{ resumeData.education.university }}
+            </p>
+            <p class="education-achievement">
+              <i class="fas fa-trophy"></i>
+              {{ resumeData.education.achievement }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Section with Magnificent Grid -->
+    <div class="resume-section" data-aos="fade-up" data-aos-delay="300">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <h2 class="section-title">Technical Expertise</h2>
+      </div>
+      <div class="section-content">
+        <div class="skills-grid">
+          <div class="skill-category glass-card" data-aos="flip-left" data-aos-delay="400">
+            <div class="skill-header">
+              <div class="skill-icon-wrapper dotnet-bg">
+                <i class="fab fa-microsoft"></i>
+              </div>
+              <h4>.NET Ecosystem</h4>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resumeData.skills.dotnet; let i = index"
+                    [style.animation-delay]="i * 50 + 'ms'">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card" data-aos="flip-left" data-aos-delay="500">
+            <div class="skill-header">
+              <div class="skill-icon-wrapper angular-bg">
+                <i class="fab fa-angular"></i>
+              </div>
+              <h4>Angular & Frontend</h4>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resumeData.skills.angular; let i = index"
+                    [style.animation-delay]="i * 50 + 'ms'">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card" data-aos="flip-left" data-aos-delay="600">
+            <div class="skill-header">
+              <div class="skill-icon-wrapper azure-bg">
+                <i class="fab fa-microsoft"></i>
+              </div>
+              <h4>Azure Cloud</h4>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resumeData.skills.azure; let i = index"
+                    [style.animation-delay]="i * 50 + 'ms'">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-category glass-card" data-aos="flip-left" data-aos-delay="700">
+            <div class="skill-header">
+              <div class="skill-icon-wrapper other-bg">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h4>Additional Skills</h4>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of resumeData.skills.other; let i = index"
+                    [style.animation-delay]="i * 50 + 'ms'">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Magnificent Print Button -->
+    <div class="print-actions" data-aos="fade-up" data-aos-delay="800">
+      <button class="print-btn" (click)="printResume()">
+        <span class="btn-shimmer"></span>
+        <i class="fas fa-print"></i>
+        <span>Download PDF / Print Resume</span>
+      </button>
+    </div>
   </div>
 </div>
+

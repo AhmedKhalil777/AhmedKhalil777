@@ -21,3 +21,4 @@ This directory should contain the following images for the portfolio:
 ## Usage
 Replace the placeholder images with actual screenshots and photos for a professional portfolio presentation.
 
+

@@ -205,3 +205,4 @@ This portfolio template is open source. Feel free to customize and use for your 
 
 **Happy Coding! 🚀**
 
+

@@ -1,5 +1,184 @@
-<section class="hero">
+<section class="hero" 
+         [attr.data-animation]="currentAnimation"
+         (mousemove)="onMouseMove($event)"
+         (click)="onBackgroundClick($event)">
+  
+  <!-- 12 Interactive Animated Backgrounds -->
   <div class="hero-background">
+    <div class="animated-bg bg-animation-{{currentAnimation}}"
+         [style.--mouse-x.%]="mouseX"
+         [style.--mouse-y.%]="mouseY"></div>
+    
+    <!-- Interactive Elements Layer -->
+    <div class="interactive-layer">
+      <!-- Universal Mouse Follower -->
+      <div class="mouse-follower" 
+           [style.left.%]="mouseX" 
+           [style.top.%]="mouseY"></div>
+      
+      <!-- Click Ripples -->
+      <div *ngFor="let click of clicks" 
+           class="click-ripple"
+           [style.left.%]="click.x"
+           [style.top.%]="click.y"
+           [attr.data-id]="click.id"></div>
+      
+      <!-- Animation 1: Gradient Wave - Flowing particles -->
+      <div *ngIf="currentAnimation === 1" class="effect-wave">
+        <div *ngFor="let click of clicks" 
+             class="wave-particle"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y"></div>
+      </div>
+      
+      <!-- Animation 2: Aurora Borealis - Light trails -->
+      <div *ngIf="currentAnimation === 2" class="effect-aurora">
+        <div class="aurora-trail" 
+             [style.left.%]="mouseX" 
+             [style.top.%]="mouseY"></div>
+        <div *ngFor="let click of clicks" 
+             class="aurora-burst"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y"></div>
+      </div>
+      
+      <!-- Animation 3: Sunset Glow - Sun rays -->
+      <div *ngIf="currentAnimation === 3" class="effect-sunset">
+        <div *ngFor="let click of clicks" 
+             class="sun-ray"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y"></div>
+      </div>
+      
+      <!-- Animation 4: Matrix Rain - Falling code -->
+      <div *ngIf="currentAnimation === 4" class="effect-matrix">
+        <div *ngFor="let click of clicks" 
+             class="matrix-code"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y">{{ getRandomCode() }}</div>
+      </div>
+      
+      <!-- Animation 5: Starfield - Shooting stars -->
+      <div *ngIf="currentAnimation === 5" class="effect-starfield">
+        <div *ngFor="let click of clicks" 
+             class="shooting-star"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y"></div>
+        <div class="cursor-glow"
+             [style.left.%]="mouseX" 
+             [style.top.%]="mouseY"></div>
+      </div>
+      
+      <!-- Animation 6: Plasma Burst - Energy explosions -->
+      <div *ngIf="currentAnimation === 6" class="effect-plasma">
+        <div *ngFor="let click of clicks" 
+             class="plasma-explosion"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y">
+          <div class="plasma-ring"></div>
+          <div class="plasma-ring" style="animation-delay: 0.2s"></div>
+          <div class="plasma-ring" style="animation-delay: 0.4s"></div>
+        </div>
+      </div>
+      
+      <!-- Animation 7: Ocean Depth - Water bubbles -->
+      <div *ngIf="currentAnimation === 7" class="effect-ocean">
+        <div *ngFor="let click of clicks" 
+             class="water-bubble"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y"></div>
+        <div class="water-ripple"
+             [style.left.%]="mouseX" 
+             [style.top.%]="mouseY"></div>
+      </div>
+      
+      <!-- Animation 8: Fire Storm - Flame particles -->
+      <div *ngIf="currentAnimation === 8" class="effect-fire">
+        <div *ngFor="let click of clicks" 
+             class="fire-particle"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y">
+          <div class="flame flame-1"></div>
+          <div class="flame flame-2"></div>
+          <div class="flame flame-3"></div>
+        </div>
+      </div>
+      
+      <!-- Animation 9: Neon Grid - Electric sparks -->
+      <div *ngIf="currentAnimation === 9" class="effect-neon">
+        <div *ngFor="let click of clicks" 
+             class="neon-spark"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y">
+          <div class="spark-line spark-h"></div>
+          <div class="spark-line spark-v"></div>
+        </div>
+      </div>
+      
+      <!-- Animation 10: Neural Network - AI nodes and connections -->
+      <div *ngIf="currentAnimation === 10" class="effect-neural">
+        <div *ngFor="let click of clicks" 
+             class="neural-burst"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y">
+          <!-- Central AI node -->
+          <div class="ai-node central-node"></div>
+          <!-- Connected nodes in hexagon pattern -->
+          <div class="ai-node connected-node node-1">
+            <div class="connection-line line-1"></div>
+          </div>
+          <div class="ai-node connected-node node-2">
+            <div class="connection-line line-2"></div>
+          </div>
+          <div class="ai-node connected-node node-3">
+            <div class="connection-line line-3"></div>
+          </div>
+          <div class="ai-node connected-node node-4">
+            <div class="connection-line line-4"></div>
+          </div>
+          <div class="ai-node connected-node node-5">
+            <div class="connection-line line-5"></div>
+          </div>
+          <div class="ai-node connected-node node-6">
+            <div class="connection-line line-6"></div>
+          </div>
+          <!-- Data pulse effects -->
+          <div class="data-pulse pulse-1"></div>
+          <div class="data-pulse pulse-2"></div>
+          <div class="data-pulse pulse-3"></div>
+        </div>
+        <!-- Mouse follower shows neural activity -->
+        <div class="neural-cursor"
+             [style.left.%]="mouseX" 
+             [style.top.%]="mouseY">
+          <div class="brain-wave"></div>
+        </div>
+      </div>
+      
+      <!-- Animation 11: Space Nebula - Cosmic clouds -->
+      <div *ngIf="currentAnimation === 11" class="effect-nebula">
+        <div *ngFor="let click of clicks" 
+             class="nebula-cloud"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y"></div>
+        <div class="cosmic-dust"
+             [style.left.%]="mouseX" 
+             [style.top.%]="mouseY"></div>
+      </div>
+      
+      <!-- Animation 12: Electric Pulse - Lightning bolts -->
+      <div *ngIf="currentAnimation === 12" class="effect-electric">
+        <div *ngFor="let click of clicks" 
+             class="lightning-bolt"
+             [style.left.%]="click.x"
+             [style.top.%]="click.y">
+          <div class="bolt bolt-1"></div>
+          <div class="bolt bolt-2"></div>
+          <div class="bolt bolt-3"></div>
+        </div>
+      </div>
+    </div>
+    
     <div class="particles" id="particles-js"></div>
   </div>
   
@@ -15,7 +194,8 @@
         <div class="hero-buttons" *ngIf="heroData$ | async as heroData">
           <a *ngFor="let button of heroData.buttons" 
              [href]="button.link" 
-             [class]="'btn btn-' + button.type">
+             [class]="'btn btn-' + button.type"
+             (click)="handleButtonClick($event, button.link)">
             <i [class]="button.icon"></i>
             {{ button.text }}
           </a>
@@ -39,7 +219,42 @@
           <div class="rotating-ring ring-2"></div>
           <div class="rotating-ring ring-3"></div>
           
-          <div class="profile-image">
+          <!-- Clock Hand Animation Selector (on image) -->
+          <div class="clock-hand-selector" *ngIf="showRollingHand" [@fadeInOut]>
+            <div class="clock-face-overlay"></div>
+            <div class="rotating-hand" 
+                 [style.transform]="'translate(-50%, -50%) rotate(' + handAngle + 'deg)'"
+                 [class.spinning]="isRolling">
+              <div class="hand-pointer"></div>
+            </div>
+            <div class="selection-pulse" 
+                 *ngIf="!isRolling"
+                 [style.top]="getClockPosition(rollingAnimation - 1).top"
+                 [style.left]="getClockPosition(rollingAnimation - 1).left"></div>
+          </div>
+          
+          <!-- 12 Clock-Positioned Animation Buttons -->
+          <div class="clock-buttons">
+            <button *ngFor="let anim of animations; let i = index"
+                    class="clock-button"
+                    [class.active]="currentAnimation === anim.id"
+                    [style.top]="getClockPosition(i).top"
+                    [style.left]="getClockPosition(i).left"
+                    [style.background]="anim.color"
+                    [title]="anim.name"
+                    (click)="switchAnimation(anim.id)"
+                    data-aos="zoom-in"
+                    [attr.data-aos-delay]="(i + 1) * 50">
+              <span class="clock-emoji">{{ anim.icon }}</span>
+              <span class="clock-number">{{ i + 1 }}</span>
+              <div class="button-glow" [style.background]="anim.color"></div>
+            </button>
+          </div>
+          
+          <div class="profile-image" 
+               (click)="onImageClick()"
+               [class.clickable]="!isRolling"
+               [title]="isRolling ? 'Selecting...' : 'Click to select new animation'">
             <img *ngIf="heroData$ | async as heroData"
                  [src]="getImagePath(heroData.image)" 
                  [alt]="heroData.imageAlt" 

@@ -36,30 +36,93 @@ export class MovieService implements OnDestroy {
   private scrollTimeout: any;
   private isUserScrolling = false;
   private isProgrammaticScroll = false;
-  private scrollListener: (() => void) | undefined;
+  private scrollListener: ((e: Event) => void) | undefined;
+  private clickListener: ((e: Event) => void) | undefined;
+  private keyListener: ((e: KeyboardEvent) => void) | undefined;
+  private touchListener: ((e: Event) => void) | undefined;
+  private wheelListener: ((e: Event) => void) | undefined;
+  private interactionTimeout: any;
+  private hasInteracted = false;
 
   constructor(private typewriterService: TypewriterService) {
     this.calculateTotalDuration();
-    this.setupScrollListener();
+    this.setupUserInteractionListeners();
   }
 
   private calculateTotalDuration() {
     this.totalDuration = this.movieScenes.reduce((total, scene) => total + scene.duration, 0);
   }
 
-  private setupScrollListener() {
-    // Listen for scroll events to detect user scrolling
+  private setupUserInteractionListeners() {
+    // Listen for ANY user interaction to stop movie mode
+    
+    // Scroll detection
     this.scrollListener = () => {
-      if (this.isMovieMode.value && !this.isUserScrolling && !this.isProgrammaticScroll) {
-        this.handleUserScroll();
+      if (this.isMovieMode.value && !this.isProgrammaticScroll) {
+        this.handleUserInteraction('scroll');
       }
     };
     window.addEventListener('scroll', this.scrollListener, { passive: true });
+    
+    // Click detection
+    this.clickListener = (e: Event) => {
+      if (this.isMovieMode.value) {
+        // Allow clicks on movie toggle button
+        const target = e.target as HTMLElement;
+        if (!target.closest('.movie-toggle')) {
+          this.handleUserInteraction('click');
+        }
+      }
+    };
+    document.addEventListener('click', this.clickListener, { passive: true });
+    
+    // Keyboard detection
+    this.keyListener = (e: KeyboardEvent) => {
+      if (this.isMovieMode.value) {
+        // Stop on any meaningful key press
+        if (!['Control', 'Alt', 'Shift', 'Meta', 'CapsLock'].includes(e.key)) {
+          this.handleUserInteraction('keyboard');
+        }
+      }
+    };
+    document.addEventListener('keydown', this.keyListener, { passive: true });
+    
+    // Touch detection
+    this.touchListener = () => {
+      if (this.isMovieMode.value) {
+        this.handleUserInteraction('touch');
+      }
+    };
+    document.addEventListener('touchstart', this.touchListener, { passive: true });
+    
+    // Mouse wheel detection
+    this.wheelListener = () => {
+      if (this.isMovieMode.value) {
+        this.handleUserInteraction('wheel');
+      }
+    };
+    document.addEventListener('wheel', this.wheelListener, { passive: true });
+
+    // Listen for view changes (navigation)
+    window.addEventListener('switch-to-resume', () => {
+      if (this.isMovieMode.value) {
+        this.handleUserInteraction('navigation');
+      }
+    });
+
+    window.addEventListener('switch-to-hero', () => {
+      if (this.isMovieMode.value) {
+        this.handleUserInteraction('navigation');
+      }
+    });
   }
 
-  private handleUserScroll() {
-    // Mark that user is scrolling
+  private handleUserInteraction(type: string) {
+    // Mark that user has interacted
+    this.hasInteracted = true;
     this.isUserScrolling = true;
+    
+    console.log(`Movie stopped due to user interaction: ${type}`);
     
     // Stop the movie and typewriter immediately
     this.stopMovie();
@@ -69,18 +132,24 @@ export class MovieService implements OnDestroy {
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
     }
+    if (this.interactionTimeout) {
+      clearTimeout(this.interactionTimeout);
+    }
     
-    // Reset user scrolling flag after a delay
-    this.scrollTimeout = setTimeout(() => {
+    // Reset flags after a delay
+    this.interactionTimeout = setTimeout(() => {
       this.isUserScrolling = false;
-    }, 1000);
+      this.hasInteracted = false;
+    }, 2000);
   }
 
   startMovie() {
     if (this.isMovieMode.value) return;
     
-    // Reset user scrolling flag
+    // Reset all interaction flags
     this.isUserScrolling = false;
+    this.hasInteracted = false;
+    this.isProgrammaticScroll = false;
     
     // Add movie mode class to body
     document.body.classList.add('movie-mode');
@@ -126,8 +195,8 @@ export class MovieService implements OnDestroy {
       return;
     }
 
-    // Check if user is scrolling - if so, don't proceed
-    if (this.isUserScrolling) {
+    // Check if user has interacted - if so, don't proceed
+    if (this.isUserScrolling || this.hasInteracted) {
       return;
     }
 
@@ -139,7 +208,9 @@ export class MovieService implements OnDestroy {
     
     // Start typewriter for current scene
     setTimeout(() => {
-      this.typewriterService.startTypewriter(scene.id);
+      if (!this.hasInteracted) {
+        this.typewriterService.startTypewriter(scene.id);
+      }
     }, 500); // Small delay to ensure smooth transition
     
     // Cinematic scroll to scene
@@ -147,7 +218,7 @@ export class MovieService implements OnDestroy {
     
     // Wait for scene duration, then move to next
     setTimeout(() => {
-      if (this.isMovieMode.value && !this.isUserScrolling) {
+      if (this.isMovieMode.value && !this.isUserScrolling && !this.hasInteracted) {
         this.currentIndex++;
         this.playNextScene();
       }
@@ -186,7 +257,7 @@ export class MovieService implements OnDestroy {
 
   private addCinematicEffects(scene: MovieScene) {
     const element = document.getElementById(scene.id);
-    if (element) {
+    if (element && !this.hasInteracted) {
       // Add cinematic glow effect
       element.style.animation = 'cinematicGlow 2s ease-in-out';
       
@@ -195,7 +266,9 @@ export class MovieService implements OnDestroy {
       
       // Start typewriter effect for this scene
       setTimeout(() => {
-        this.typewriterService.startTypewriter(scene.id);
+        if (!this.hasInteracted) {
+          this.typewriterService.startTypewriter(scene.id);
+        }
       }, 500); // Start typing after 0.5 seconds
     }
   }
@@ -252,9 +325,21 @@ export class MovieService implements OnDestroy {
   }
 
   ngOnDestroy() {
-    // Clean up scroll listener
+    // Clean up all event listeners
     if (this.scrollListener) {
       window.removeEventListener('scroll', this.scrollListener);
+    }
+    if (this.clickListener) {
+      document.removeEventListener('click', this.clickListener);
+    }
+    if (this.keyListener) {
+      document.removeEventListener('keydown', this.keyListener);
+    }
+    if (this.touchListener) {
+      document.removeEventListener('touchstart', this.touchListener);
+    }
+    if (this.wheelListener) {
+      document.removeEventListener('wheel', this.wheelListener);
     }
     
     // Clear all intervals and timeouts
@@ -263,6 +348,15 @@ export class MovieService implements OnDestroy {
     }
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
+    }
+    if (this.interactionTimeout) {
+      clearTimeout(this.interactionTimeout);
+    }
+    
+    // Remove scene title overlay if exists
+    const titleOverlay = document.getElementById('scene-title');
+    if (titleOverlay) {
+      titleOverlay.remove();
     }
   }
 }

@@ -27,7 +27,7 @@ if %errorlevel% equ 0 (
     
     REM Deploy to GitHub Pages
     echo 🚀 Deploying to GitHub Pages...
-    npx angular-cli-ghpages --dir=dist/ahmed-khalil-portfolio
+    npx angular-cli-ghpages --dir=dist/portfolio
     
     if %errorlevel% equ 0 (
         echo 🎉 Deployment completed successfully!
@@ -44,4 +44,5 @@ if %errorlevel% equ 0 (
 )
 
 pause
+
 

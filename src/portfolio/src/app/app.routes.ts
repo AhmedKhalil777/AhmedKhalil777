@@ -7,7 +7,8 @@ export const routes: Routes = [
   },
   {
     path: 'resume',
-    loadComponent: () => import('./components/resume/resume.component').then(m => m.ResumeComponent)
+    redirectTo: '',
+    pathMatch: 'full'
   },
   {
     path: '**',
