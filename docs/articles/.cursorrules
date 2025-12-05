@@ -1,0 +1,335 @@
+# Luftborn Platform - Claude Agent Rules
+
+## Project Overview
+This is a monorepo containing:
+- **Frontend**: Angular 19 with Nx, TypeScript, Module Federation, Tailwind CSS, SCSS
+- **Backend**: .NET/C# (Platform-Backend)
+- **Architecture**: Micro-frontend architecture with module federation
+
+## General Coding Principles
+
+### Code Quality
+- Write clean, maintainable, and well-documented code
+- Follow SOLID principles
+- Prefer composition over inheritance
+- Keep functions and methods small and focused (single responsibility)
+- Avoid code duplication - extract reusable utilities
+- Use meaningful variable and function names
+- Add comments for complex business logic, not obvious code
+- The function parameter shouldn't exceed 3 parameters, if more create types
+- Don't use comments, only if needed, name conventions are important to be human understandable
+- Don't use `export * from`, export each type singularly   
+- Use signals intensively any thing need computations linking signaling
+- Use new Http Angular resource, not http client on implementations
+- When you add a localization to the code, add the localization to i18n files also of shell and the modules and confirm that the line numnbers are aligned in each file for the the same localization variable
+- don't use onXXXXXX on name of functions, use the name of function exactly 
+- Create types instead of interfaces if no inheritance exist 
+- Don't use Promise instead use Observables for backend calls
+- For Get requerts prefred to be Http Resource than regular Http Get
+- For Utility functions or primitive classes or components write briefly Jsdocs with examples simply 
+
+
+
+### TypeScript/JavaScript Standards
+- Always use TypeScript strict mode
+- Prefer explicit types over `any` - use `unknown` if type is truly unknown
+- Use `const` for immutable values, `let` for mutable ones
+- Avoid `var` entirely
+- Use optional chaining (`?.`) and nullish coalescing (`??`) appropriately
+- Prefer arrow functions for callbacks
+- Use template literals for string concatenation
+- Unused variables should be prefixed with `_` (e.g., `_unusedParam`)
+
+### Error Handling
+- Always handle errors appropriately
+- Use try-catch blocks for async operations
+- Provide meaningful error messages
+- Log errors appropriately for debugging
+- Never swallow errors silently
+
+## Angular-Specific Rules
+
+### Component Architecture
+- **Always use standalone components** - no NgModules
+- Use Angular 19 features: signals, computed, effect, input signals
+- Component selector prefix: `pf-` (e.g., `pf-time-registry`)
+- Use `inject()` for dependency injection instead of constructor injection
+- Mark injected services as `readonly` and use private field syntax with `#` prefix:
+  ```typescript
+  readonly #service = inject(Service);
+  ```
+- Use `input()` and `input.required()` for component inputs
+- Use `signal()` for component state
+- Use `computed()` for derived state
+- Use `effect()` for side effects (with proper cleanup)
+
+### Component Structure
+- Order imports: Angular core → Angular common → third-party → local
+- Group imports logically
+- Use `OnInit`, `OnDestroy`, etc. only when necessary
+- Prefer `DestroyRef` and `takeUntilDestroyed()` for subscription cleanup
+- Use `@ViewChild` with `{ static: false }` by default
+
+### Services
+- Use `@Injectable()` decorator
+- Prefer `inject()` over constructor injection
+- Services should be focused and single-purpose
+- Use facades for complex state management
+- Keep services stateless when possible
+
+### State Management
+- Use NgRx Store for global state
+- Use signals for local component state
+- Use computed signals for derived values
+- Avoid prop drilling - use services or state management
+
+### Forms
+- Use Reactive Forms (`ReactiveFormsModule`) for complex forms
+- Use Template-driven Forms (`FormsModule`) only for simple forms
+- Always validate user input
+- Provide clear validation error messages
+
+### Styling
+- Use SCSS for component styles
+- Use Tailwind CSS utility classes when appropriate
+- Follow BEM naming convention for custom CSS classes
+- Keep styles scoped to components
+- Use CSS variables for theming
+
+### Module Federation
+- Respect module boundaries defined in `eslint.config.js`
+- Follow dependency constraints between apps and libs
+- Use proper path aliases from `tsconfig.base.json`
+- Never create circular dependencies
+
+## Nx Monorepo Rules
+
+### Library Organization
+- Follow the established library structure:
+  - `api/` - API clients and interfaces
+  - `data-access/` - Services, repositories, state management
+  - `feature/` - Feature modules and components
+  - `ui/` - Reusable UI components
+  - `type/` - TypeScript types and interfaces
+  - `util/` - Utility functions
+  - `const/` - Constants
+  - `guard/` - Route guards
+  - `state/` - State management (NgRx)
+
+### Path Aliases
+- Always use path aliases from `tsconfig.base.json` (e.g., `@plt-libs/shared/...`)
+- Never use relative paths that go outside the library (use aliases instead)
+- Import from library index files when available
+
+### Module Boundaries
+- **Strictly enforce** module boundary rules from `eslint.config.js`
+- `type:type` can only depend on: `type:type`, `type:const`, `type:api`, `type:util`
+- `type:ui` can depend on: `type:type`, `type:const`, `type:util`, `type:ui`, `type:data-access`, `type:api`, `type:state`, `type:feature`
+- `type:feature` can depend on: `type:api`, `type:type`, `type:const`, `type:util`, `type:ui`, `type:feature`, `type:data-access`, `type:guard`, `type:state`
+- `type:data-access` can depend on: `type:api`, `type:type`, `type:const`, `type:util`, `type:data-access`, `type:state`, `type:feature`
+- `app:shared` can only depend on `app:shared`
+- Check `eslint.config.js` for complete dependency rules
+
+### Testing
+- Write unit tests for services and utilities
+- Use Jest for testing
+- Test files should be named `*.spec.ts`
+- Aim for meaningful test coverage, not just 100%
+
+## C# / .NET Backend Rules
+
+### Code Style
+- Follow C# coding conventions
+- Use PascalCase for public members
+- Use camelCase for private fields (with `_` prefix)
+- Use meaningful names
+- Keep methods focused and small
+
+### Architecture
+- Follow Clean Architecture principles
+- Separate concerns: Controllers, Services, Repositories
+- Use dependency injection
+- Implement proper error handling and logging
+
+### Async/Await
+- Always use async/await for I/O operations
+- Use `ConfigureAwait(false)` in library code
+- Return `Task` or `Task<T>` from async methods
+
+### API Design
+- Use RESTful conventions
+- Return appropriate HTTP status codes
+- Validate input data
+- Use DTOs for data transfer
+
+## File Organization
+
+### Naming Conventions
+- Files: kebab-case (e.g., `time-registry.component.ts`)
+- Classes: PascalCase (e.g., `TimeRegistryComponent`)
+- Interfaces: PascalCase with `I` prefix (e.g., `IEmployeeProject`)
+- Types: PascalCase (e.g., `TimeDuration`)
+- Constants: UPPER_SNAKE_CASE (e.g., `TIME_DISPLAY_PLACEHOLDER`)
+- Variables and functions: camelCase (e.g., `timeValue`, `getProjectDisplayName`)
+
+### File Structure
+- One class/interface per file
+- Export from index files for public API
+- Keep related files together
+- Use barrel exports (`index.ts`) for libraries
+
+## Git and Version Control
+
+### Commits
+- Write clear, descriptive commit messages
+- Use conventional commit format when possible
+- Keep commits focused and atomic
+
+### Branching
+- Create feature branches for new work
+- Keep branches up to date with main/development
+
+## Performance
+
+### Frontend
+- Lazy load routes and modules
+- Use OnPush change detection strategy when possible
+- Avoid unnecessary re-renders
+- Optimize bundle size
+- Use trackBy functions in *ngFor loops
+- Unsubscribe from observables to prevent memory leaks
+
+### Backend
+- Optimize database queries
+- Use async/await for I/O operations
+- Implement proper caching strategies
+- Monitor and optimize API response times
+
+## Security
+
+### General
+- Never commit secrets, API keys, or credentials
+- Validate and sanitize user input
+- Use parameterized queries for database operations
+- Implement proper authentication and authorization
+- Follow OWASP security best practices
+
+### Frontend
+- Sanitize user input before rendering
+- Use Content Security Policy
+- Validate data on both client and server
+
+### Backend
+- Implement proper authentication (JWT, OAuth, etc.)
+- Use authorization policies
+- Validate all input data
+- Protect against SQL injection, XSS, CSRF
+
+## Documentation
+
+### Code Comments
+- Document complex algorithms and business logic
+- Use JSDoc for public APIs
+- Keep comments up to date with code changes
+- Prefer self-documenting code over comments
+
+### README Files
+- Keep README files updated
+- Document setup and installation steps
+- Include examples for complex features
+
+## Dependencies
+
+### Adding Dependencies
+- Check if functionality exists in shared libraries first
+- Avoid duplicate dependencies
+- Keep dependencies up to date
+- Review and approve new dependencies
+
+### Version Management
+- Use exact versions for critical dependencies
+- Regularly update dependencies for security patches
+- Test thoroughly after dependency updates
+
+## Code Review Guidelines
+
+### Before Submitting
+- Run linter: `npm run lint`
+- Run tests: `npm run test`
+- Format code: `npm run prettier-format`
+- Check for console.log statements and remove them
+- Verify no secrets are committed
+
+### Review Checklist
+- Code follows project conventions
+- No breaking changes without migration guide
+- Tests are included for new features
+- Documentation is updated if needed
+- Performance implications are considered
+- Security best practices are followed
+
+## Common Patterns
+
+### Angular Signals Pattern
+```typescript
+// Component with signals
+export class MyComponent {
+  value = input.required<string>();
+  count = signal<number>(0);
+  doubled = computed(() => this.count() * 2);
+  
+  readonly #service = inject(MyService);
+  
+  constructor() {
+    afterRenderEffect(() => {
+      // Side effect based on signal changes
+    });
+  }
+}
+```
+
+### Service Injection Pattern
+```typescript
+@Injectable()
+export class MyService {
+  readonly #http = inject(HttpClient);
+  readonly #logger = inject(Logger);
+  
+  // Service methods
+}
+```
+
+### Error Handling Pattern
+```typescript
+try {
+  const result = await this.service.getData();
+  // Handle success
+} catch (error) {
+  this.#logger.error('Failed to get data', error);
+  this.#toastService.error('An error occurred');
+  // Handle error appropriately
+}
+```
+
+## When Making Changes
+
+1. **Understand the context**: Read related files and understand the feature
+2. **Follow existing patterns**: Match the style and patterns already in the codebase
+3. **Test your changes**: Ensure existing tests pass and add new tests if needed
+4. **Check dependencies**: Verify module boundaries and dependencies
+5. **Update documentation**: Update relevant docs if behavior changes
+6. **Consider performance**: Think about the performance impact of your changes
+7. **Security first**: Always consider security implications
+
+## Questions to Ask
+
+Before implementing a feature or fix:
+- Does this follow the established patterns?
+- Are there existing utilities I should use?
+- Does this respect module boundaries?
+- Is this the right place for this code?
+- Have I considered edge cases and error handling?
+- Are there security implications?
+- Do I need to update tests or documentation?
+
+
