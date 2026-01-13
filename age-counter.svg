@@ -62,13 +62,13 @@
   <text class="age-label" x="500" y="120">MONTHS</text>
   <text class="age-value" x="500" y="170">0</text>
   <rect class="progress-bg" x="400" y="190" width="200" height="20" />
-  <rect class="progress-fill" x="400" y="190" width="72" height="20" />
+  <rect class="progress-fill" x="400" y="190" width="78" height="20" />
   
   <!-- Days -->
   <text class="age-label" x="750" y="120">DAYS</text>
-  <text class="age-value" x="750" y="170">11</text>
+  <text class="age-value" x="750" y="170">12</text>
   <rect class="progress-bg" x="650" y="190" width="200" height="20" />
-  <rect class="progress-fill" x="650" y="190" width="66" height="20" />
+  <rect class="progress-fill" x="650" y="190" width="72" height="20" />
   
   <!-- Coding Section -->
   <text class="section-title" x="325" y="240">Coding Journey (Jul 2, 2015)</text>
